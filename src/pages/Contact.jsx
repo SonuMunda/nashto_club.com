@@ -6,28 +6,28 @@ const Contact = () => {
       <div id="contact-intro" className="center">
         <div className="contact-intro-container flex-column center">
           <div className="contact-title">
-            <h1>Get in Touch</h1>
+            <h1 className=" heading">Get in Touch</h1>
           </div>
           <div className="phone">
             <p>
-              <i class="fa-solid fa-phone"></i> <span>Phone:</span>{" "}
+              <i className="fa-solid fa-phone"></i> <span>Phone: </span>
               <span>+91 80808-08080</span>
             </p>
           </div>
           <div className="mail">
-            <p>
-              <i class="fa-solid fa-envelope"></i> <span>Email:</span>{" "}
-              <span className="text-danger">nashtoclub@email.com</span>
+            <p className="my-2">
+              <i className="fa-solid fa-envelope"></i> <span>Email: </span>
+              <span className="text-decoration-underline">nashtoclub@email.com</span>
             </p>
           </div>
-          <div className="address">
-            <i class="fa-solid fa-location-dot"></i> <span>Address:</span>{" "}
+          <div className="address mb-4">
+            <i className="fa-solid fa-location-dot"></i> <span>Address: </span>
             <span>Near Civil Hospital, kharar, Mohali</span>
           </div>
 
-          <div className="form-container">
+          <div className="form-container my-3">
             <form action="">
-              <div className="form-row center ">
+              <div className="form-row vertical-center">
                 <div className="form-col">
                   <div className="form-group">
                     <input
@@ -35,6 +35,7 @@ const Contact = () => {
                       name="name-field"
                       className="user-inputs"
                       id="name-field"
+                      placeholder="Name"
                     />
                   </div>
                   <div className="form-group">
@@ -43,6 +44,7 @@ const Contact = () => {
                       name="email-field"
                       className="user-inputs"
                       id="email-field"
+                      placeholder="Email"
                     />
                   </div>
                   <div className="form-group">
@@ -51,6 +53,7 @@ const Contact = () => {
                       name="phone-field"
                       className="user-inputs"
                       id="phone-field"
+                      placeholder="Phone"
                     />
                   </div>
                 </div>
@@ -60,6 +63,7 @@ const Contact = () => {
                       name="msg-area"
                       className="user-inputs"
                       id="msg-area"
+                      placeholder="Message"
                     ></textarea>
                   </div>
                 </div>
