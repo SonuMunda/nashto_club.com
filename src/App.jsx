@@ -9,6 +9,7 @@ import Story from "./pages/Story";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/story" element={<Story />} />
         <Route path="/order" element={<Order />} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="*" element={<ErrorPage/>} />
       </Routes>
       <Footer />
     </>

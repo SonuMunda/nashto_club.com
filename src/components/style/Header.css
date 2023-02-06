@@ -14,6 +14,7 @@ header {
   display: flex;
   align-items: center;
   list-style: none;
+  margin: 1rem 0 !important;
 }
 
 .nav-list .nav-list-items {
@@ -48,28 +49,29 @@ header {
 
 .menubar {
   display: none;
+  font-size: 1.8rem;
   cursor: pointer;
+  color: var(--materialRed);
 }
 
-.menubar .bar {
-  height: 6px;
-  width: 32px;
-  background-color: #f44336;
-  margin: 6px 0;
-  position: static;
-  transition: all 0.4s ease-in-out;
+.closeMenu {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--materialRed);
 }
+
 @media only screen and (max-width: 1024px) {
   header {
     border-radius: 10px 10px 0 0;
   }
-  #navbar {
+  .navbar {
     position: fixed;
     top: 66px;
-    left: 0;
-    height: 0px;
+    left: -275px;
+    height: 100vh;
     padding: 0px;
-    width: 100%;
+    width: 275px;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -78,14 +80,16 @@ header {
     border-radius: 0px 0px 10px 10px;
   }
 
+  .nav-active {
+    left: 0px;
+  }
+
   .nav-container {
     height: 100%;
     width: 100%;
-    padding: 0 10px;
   }
 
   .nav-list {
-    padding: 0 15px !important;
     width: 100%;
     flex-direction: column;
   }
@@ -98,12 +102,9 @@ header {
     width: 100%;
     display: block;
     padding-left: 1.2rem !important;
-    border-radius: 8px;
+    margin: 0 !important;
   }
-  .nav-links:active {
-    background-color: var(--materialRed);
-    color: white !important;
-  }
+
   .nav-links:hover {
     background-color: var(--materialRed);
     color: white !important;
@@ -112,13 +113,13 @@ header {
   .nav-btn {
     width: 100%;
     border-radius: 0px;
-    margin: 0 0 0 10px;
-    border-radius: 8px;
-    padding: 8px;
+    padding: 8px 0 8px 1.4rem;
     border: none;
-    font-size: 16px;
-    border: 2px solid var(--materialRed);
+    font-size: 1rem;
     transition: none;
+    text-transform: capitalize;
+    text-align: left;
+    margin: 0;
   }
   .menubar {
     display: block;
@@ -128,9 +129,5 @@ header {
 @media only screen and (max-width: 480px) {
   header {
     padding: 30px;
-  }
-
-  .bar {
-    margin: 0px 2px;
   }
 }

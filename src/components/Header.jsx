@@ -1,58 +1,87 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./style/Header.css";
 import logo from "/images/Brand.png";
-import menuFunction from "../assets/api/menuFunction";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="space-between">
       <div className="brand">
-        <Link to="/" className="text-decoration-none">
-          <img src={logo} alt="Nashto Club" style={{ height: "48px", padding:"4px" }} />
-        </Link>
+        <NavLink to="/" className="text-decoration-none">
+          <img
+            src={logo}
+            alt="Nashto Club"
+            style={{ height: "48px", padding: "4px" }}
+          />
+        </NavLink>
       </div>
-      <nav className="navbar" id="navbar">
+      <nav className={isOpen ? "navbar nav-active" : "navbar"}>
         <div className="nav-container">
           <ul className="nav-list">
             <li className="nav-list-items">
-              <Link to="/timings" className="nav-links">
+              <NavLink
+                to="/timings"
+                className="nav-links"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 Hours & Location
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-list-items">
-              <Link to="/menu" className="nav-links">
+              <NavLink
+                to="/menu"
+                className="nav-links"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 Menu
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-list-items">
-              <Link to="/story" className="nav-links">
+              <NavLink
+                to="/story"
+                className="nav-links"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 Our Story
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-list-items">
-              <Link to="/order" className="nav-links">
+              <NavLink
+                to="/order"
+                className="nav-links"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 Order Online
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-list-items">
-              <Link to="/contact" className="nav-links">
+              <NavLink
+                to="/contact"
+                className="nav-links"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 Contact
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-list-items">
-              <Link to="/registration" className="btn-link">
+              <NavLink
+                to="/registration"
+                className="btn-link"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 <button className="nav-btn">Registrations</button>
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
       </nav>
-
-      <div className="menubar" onClick={menuFunction}>
-        <div className="bar" id="bar-1"></div>
-        <div className="bar" id="bar-2"></div>
-        <div className="bar" id="bar-3"></div>
+      <div className="menubar">
+        <div onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </header>
   );
