@@ -1,0 +1,99 @@
+#story-intro {
+  height: 75vh;
+  width: 100%;
+  position: relative;
+}
+
+#story-intro::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4) url("./images/story-intro-background.jpg")
+    center center/cover no-repeat;
+  background-blend-mode: darken;
+  opacity: 1;
+  z-index: -1;
+}
+
+.story-heading .heading {
+  font-size: 3.5rem;
+}
+
+.some-lines {
+  padding: 3rem;
+  font-size: 1.4rem;
+  color: white;
+  background-color: var(--materialRed);
+}
+
+/* Menu Intro Section */
+
+.about-menu-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-menu-cols {
+  padding: 0 2rem;
+}
+
+.menu-img img {
+  display: block;
+  margin: auto;
+  width: 86%;
+}
+
+.experience-row {
+  display: flex;
+}
+
+.experience-col {
+  margin: 1rem;
+  width: 50%;
+}
+
+.content {
+  padding: 1rem 1.4rem;
+}
+.story-img img {
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+
+#collabs {
+ border: 4px double var(--materialRed);
+ margin-bottom: 1rem;
+}
+
+.collabs-col {
+  margin: 1rem;
+}
+
+.collabs-col img {
+  height: 120px;
+}
+
+@media only screen and (max-width: 688px) {
+  .some-lines {
+    font-size: 1rem;
+  }
+  .experience-row {
+    flex-wrap: wrap-reverse;
+  }
+  .experience-col {
+    margin: 1rem;
+    width: 100% !important;
+  }
+
+  .collabs-col {
+    margin: 10px
+  }
+
+  .collabs-col img {
+    height: 64px;
+  }
+}

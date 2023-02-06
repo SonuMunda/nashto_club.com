@@ -1,0 +1,70 @@
+#timings-intro {
+  height: 75vh;
+  width: 100%;
+  position: relative;
+}
+
+#timings-intro::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url("./images/timings-bg.jpg") center center/cover no-repeat;
+  background-blend-mode: darken;
+  opacity: 1;
+  z-index: -1;
+}
+
+.timings-intro-container {
+  color: white;
+  font-weight: bold;
+  padding: 4rem 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  backdrop-filter: blur(15px);
+  background-color: rgba(0, 0, 0, 0.292);
+}
+
+.timings-intro-container .timings-heading {
+  font-size: 3rem;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  margin: 2rem 0;
+}
+
+.timings-intro-container .time-alert-msg {
+  text-transform: none;
+  font-weight: 100;
+}
+
+#timings-details {
+  background-color: var(--materialRed);
+}
+
+.timings-details-container{
+    padding: 2rem 0;
+    width: 80%;
+}
+
+.timings-details-container .timing-heading  h1{
+  width: fit-content;
+  border-bottom: 4px solid white;
+}
+
+.timings-details-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 80%;
+}
+
+.timings-details-col{
+    padding: 2rem 0;
+    background-color: #ffff;
+    border-radius: 10px;
+}
+
+.location-heading h1{
+    font-weight: bold;
+    border-bottom: 4px solid black;
+}

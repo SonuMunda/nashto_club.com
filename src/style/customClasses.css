@@ -1,0 +1,46 @@
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-center {
+  display: flex;
+  justify-content: center;
+}
+
+.none {
+  text-decoration: none;
+  color: rgb(119, 119, 255);
+}
+
+.title {
+  text-align: center;
+  color: var(--materialRed);
+  font-weight: bolder !important;
+  text-transform: uppercase;
+}
+
+.heading {
+  text-align: center;
+  font-weight: bolder !important;
+  text-transform: uppercase;
+  padding: 1rem 0.5rem;
+}

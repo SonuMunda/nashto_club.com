@@ -1,0 +1,30 @@
+.services-card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+}
+
+.services-card {
+  padding: 1rem;
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.service-title h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+}
+
+.service-img img {
+  box-shadow: 0px 0px 1px 1px var(--materialRed);
+  display: block;
+  margin: auto;
+  width: 86%;
+  border-radius: 8px;
+}

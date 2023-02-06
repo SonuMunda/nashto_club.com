@@ -1,0 +1,77 @@
+#menu-intro {
+  height: 65vh;
+  width: 100%;
+  position: relative;
+}
+
+#menu-intro::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4) url("./images/menu-bg.jpg") center center/cover
+    no-repeat;
+  background-blend-mode: darken;
+  opacity: 1;
+  z-index: -1;
+}
+
+.menu-intro-container {
+  border: 4px dashed var(--materialRed);
+  padding: 2rem;
+}
+
+.intro-heading h3 {
+  font-size: 4rem;
+  font-family: "PlayBall", cursive;
+  color: var(--materialRed);
+}
+
+.intro-line {
+  font-size: large;
+  color: #ffff;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.menu-row {
+  padding: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-col{
+  width: 50%;
+}
+
+.menu-col .img {
+  display: block;
+  margin: auto;
+  width: 80%;
+}
+
+.menu-col .col-img {
+  height: 100%;
+  width: 100%;
+}
+.menu-heading h3 {
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+@media only screen and (max-width: 1124px) {
+  .menu-col {
+    width: 100%;
+  }
+
+  .menu-heading h3{
+    font-size: 1.8rem !important;
+    padding-bottom: 0 !important;
+  }
+
+  .menu-col .img {
+    display: block;
+    margin: auto;
+    width: 40%;
+  }
+}
