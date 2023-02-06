@@ -65,8 +65,8 @@
 }
 
 #collabs {
- border: 4px double var(--materialRed);
- margin-bottom: 1rem;
+  border: 4px double var(--materialRed);
+  margin-bottom: 1rem;
 }
 
 .collabs-col {
@@ -90,7 +90,7 @@
   }
 
   .collabs-col {
-    margin: 10px
+    margin: 10px;
   }
 
   .collabs-col img {
