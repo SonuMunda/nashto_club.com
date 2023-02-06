@@ -7,6 +7,7 @@ import Timings from "./pages/Timings";
 import Menu from "./pages/Menu";
 import Story from "./pages/Story";
 import Order from "./pages/Order";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/story" element={<Story />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/contact" element={<Contact/>} />
       </Routes>
       <Footer />
     </>

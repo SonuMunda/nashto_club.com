@@ -1,0 +1,44 @@
+#contact-intro {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+#contact-intro::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4) url("./images/") center center/cover no-repeat;
+  background-blend-mode: darken;
+  opacity: 1;
+  z-index: -1;
+}
+
+.form-group {
+  margin: 10px;
+}
+
+.form-group input {
+  height: 48px;
+  width: 264px;
+  padding: 16px;
+  outline: none;
+  border:none
+}
+
+.form-group #msg-area {
+  height: 162px;
+  width: 264px;
+  outline: none;
+  border:none
+}
+
+.form-msg-btn #send-btn {
+  padding: 10px;
+  text-transform: uppercase;
+  outline: none;
+  border:none;
+  background-color: var(--materialRed);
+  color: white;
+}
