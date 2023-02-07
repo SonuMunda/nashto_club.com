@@ -52,7 +52,7 @@ const Timings = () => {
                   <h6 className="food-category">Dinner</h6>
                   <p className="pb-3">05:00AM - 07:30PM</p>
 
-                  <p className="pb-3 px-2 text-uppercase text-danger fw-bold">
+                  <p className="pb-3 px-2 text-uppercase text-danger fw-bold text-center">
                     "Ordering Brunch is not possible on Sundays"
                   </p>
                 </div>
@@ -65,12 +65,12 @@ const Timings = () => {
       <hr />
 
       <section id="location">
-        <div className="location-container center flex-column py-3">
+        <div className="location-container center flex-column pt-3">
           <div className="location-heading heading">
             <h1>We are Located Here</h1>
           </div>
           <div className="location-address">
-            <h5 className="text-uppercase">
+            <h5 className="text-uppercase text-center px-2">
               Near Civil Hospital Kharar, Mohali Road, PB, India
             </h5>
           </div>

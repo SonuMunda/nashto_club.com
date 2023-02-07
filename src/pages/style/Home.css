@@ -96,8 +96,8 @@
 
 /* Section Best Dishes */
 
-.best-dishes-container{
-  width: 80%;
+.best-dishes-container {
+  width: 100%;
 }
 
 /* Section Quote */
@@ -131,4 +131,35 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 680px) {
+  #home-intro {
+    height: 65vh;
+  }
+
+  .home-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .brand-name h1 {
+    font-size: 1.6rem;
+  }
+
+  .greet-msg {
+    font-size: 1rem;
+  }
+
+  .slogan {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .quote-container {
+    width: 100%;
+  }
+  .content {
+    width: 100% !important;
+  }
 }

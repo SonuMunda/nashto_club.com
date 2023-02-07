@@ -69,9 +69,9 @@ const Home = () => {
                     </p>
                   </div>
                   <div className="navigate-menu">
-                    <a href="/">
+                    <Link to="/menu">
                       <button className="menu-link-btn">View Menu</button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -2,10 +2,8 @@ import React from "react";
 
 const LocationMap = () => {
     const mapContainerStyle = {
-        width:"80%",
+        width:"100%",
         margin:"1rem 0",
-        border:"2px solid var(--materialRed)",
-        borderRadius:"10px",
         overflow:"hidden"
 
     }

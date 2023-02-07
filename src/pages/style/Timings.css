@@ -41,12 +41,12 @@
   background-color: var(--materialRed);
 }
 
-.timings-details-container{
-    padding: 2rem 0;
-    width: 80%;
+.timings-details-container {
+  padding: 2rem 0;
+  width: 80%;
 }
 
-.timings-details-container .timing-heading  h1{
+.timings-details-container .timing-heading h1 {
   width: fit-content;
   border-bottom: 4px solid white;
 }
@@ -58,13 +58,33 @@
   width: 80%;
 }
 
-.timings-details-col{
-    padding: 2rem 0;
-    background-color: #ffff;
-    border-radius: 10px;
+.timings-details-col {
+  padding: 2rem 0;
+  background-color: #ffff;
+  border-radius: 10px;
 }
 
-.location-heading h1{
-    font-weight: bold;
-    border-bottom: 4px solid black;
+.location-heading h1 {
+  font-weight: bold;
+  border-bottom: 4px solid black;
+}
+
+@media only screen and (max-width: 680px) {
+  .timings-intro-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .timings-intro-container .timings-heading {
+    font-size: 1.6rem;
+    padding: 1rem;
+  }
+
+  .timings-details-container {
+    width: 100%;
+  }
+
+  .timings-details-row {
+    width: 86%;
+  }
 }

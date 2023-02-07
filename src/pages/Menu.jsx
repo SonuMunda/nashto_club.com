@@ -21,7 +21,7 @@ const Menu = () => {
       <div id="menu-intro" className="center">
         <div className="menu-intro-container center flex-column">
           <div className="intro-heading">
-            <h3>Nashto Menu</h3>
+            <h3 className="text-center">Nashto Menu</h3>
           </div>
           <div className="intro-line">
             <p>See our Delicious Menu Items</p>

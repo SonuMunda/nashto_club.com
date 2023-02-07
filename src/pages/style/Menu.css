@@ -40,7 +40,7 @@
   flex-wrap: wrap;
 }
 
-.menu-col{
+.menu-col {
   width: 50%;
 }
 
@@ -64,7 +64,7 @@
     width: 100%;
   }
 
-  .menu-heading h3{
+  .menu-heading h3 {
     font-size: 1.8rem !important;
     padding-bottom: 0 !important;
   }
@@ -73,5 +73,12 @@
     display: block;
     margin: auto;
     width: 40%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .intro-heading h3 {
+    font-size: 2rem;
+    padding: 8px;
   }
 }
