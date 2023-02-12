@@ -1,6 +1,7 @@
 import React from "react";
 import "./style/Footer.css";
-import logo from '/images/Brand.png';
+import { Link } from "react-router-dom";
+import logo from '../assets/favicon.png';
 
 const Footer = () => {
   return (
@@ -9,8 +10,16 @@ const Footer = () => {
         <div className="f-row">
           <div className="f-cols vertical-center">
             <div className="brand">
-              <img src={logo} alt="Nashto Club" style={{ height: "48px" }} />
-            </div>
+            <Link to="/" className="text-decoration-none center">
+              <img src={logo} alt="plate" style={{ height: "32px" }} className="mx-1" />
+              <h4
+                style={{ color: "var(--materialRed)" }}
+                className=" fw-bold"
+              >
+                Nashto Club
+              </h4>
+            </Link>
+          </div>
           </div>
           <div className="f-cols" id="contact-col">
             <div className="contacts">

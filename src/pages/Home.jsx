@@ -7,7 +7,7 @@ import BestDishesCard from "../components/BestDishesCard";
 import BestDishesList from "../assets/api/BestDishesList";
 import quoteMan from "/images/quote-man.jpg";
 import { Link } from "react-router-dom";
-const Home = () => {
+const Home = (props) => {
   return (
     <>
       <div className="home-wrapper">
@@ -26,11 +26,14 @@ const Home = () => {
             </p>
 
             <div className="home-btns">
-              <Link to="/registration">
-                <button className="home-btn" id="reservation-btn">
-                  Reservations
-                </button>
-              </Link>
+              <button
+                className="home-btn"
+                id="reservation-btn"
+                onClick={props.openWidget}
+              >
+                Reservations
+              </button>
+
               <Link to="/menu">
                 <button className="home-btn" id="menu-btn">
                   View our Menu

@@ -1,0 +1,90 @@
+.reservation-form-widget {
+  position: fixed;
+  top: 75px;
+  height: 0%;
+  right: 10px;
+  width: 420px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 0px 10px 0px rgb(77, 77, 77);
+}
+
+.res-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0rem;
+}
+
+.res-form-row {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.res-form-group {
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  background-color: #ff6764;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.res-form-group label {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-style: oblique;
+}
+
+.res-form-group input {
+  font-size: 14px;
+}
+
+.res-form-group input,
+.res-form-group select {
+  outline: none;
+  border: none;
+  height: 42px;
+  width: 210px;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+#res-btn {
+  height: 42px;
+  width: 100%;
+  outline: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.2s ease-in;
+}
+
+#res-btn:hover {
+  background-color: #ffffff;
+  color: #f44336;
+}
+
+@media only screen and (max-width: 480px) {
+  .reservation-form-widget {
+    width: 100%;
+    right: 0;
+  }
+}

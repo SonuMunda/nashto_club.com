@@ -3,19 +3,21 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./style/Header.css";
-import logo from "/images/Brand.png";
+import logo from "../assets/favicon.png";
 
-const Header = () => {
+const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="space-between">
       <div className="brand">
-        <NavLink to="/" className="text-decoration-none">
-          <img
-            src={logo}
-            alt="Nashto Club"
-            style={{ height: "48px", padding: "4px" }}
-          />
+        <NavLink to="/" className="text-decoration-none center">
+          <img src={logo} alt="" style={{ height: "32px" }} className="mx-1" />
+          <h4
+            style={{ color: "var(--materialRed)" }}
+            className=" fw-bold"
+          >
+            Nashto Club
+          </h4>
         </NavLink>
       </div>
       <nav className={isOpen ? "navbar nav-active" : "navbar"}>
@@ -68,11 +70,15 @@ const Header = () => {
             </li>
             <li className="nav-list-items">
               <NavLink
-                to="/registration"
+                to="#"
                 className="btn-link"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={(e) => {
+                  setIsOpen(!isOpen);
+                  e.preventDefault();
+                  props.openWidget();
+                }}
               >
-                <button className="nav-btn">Registrations</button>
+                <button className="nav-btn">Reservation</button>
               </NavLink>
             </li>
           </ul>

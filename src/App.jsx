@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./style/App.css";
 import "./style/App.css";
+import openWidget from "./assets/api/OpenWidget";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Timings from "./pages/Timings";
@@ -10,13 +11,14 @@ import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
+import Reservation from "./pages/Reservations";
 
 function App() {
   return (
     <>
-      <Header />
+      <Header openWidget = {openWidget}/>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home openWidget = {openWidget}/>} />
         <Route path="/timings" element={<Timings />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/story" element={<Story />} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="*" element={<ErrorPage/>} />
       </Routes>
+      <Reservation/>
       <Footer />
     </>
   );

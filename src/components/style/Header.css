@@ -5,8 +5,8 @@ header {
   height: 65px;
   width: 100%;
   padding: 0 4rem;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: #ffff;
+  border-bottom: 2px solid var(--materialRed);
+  background-color: rgb(255, 255, 255);
   z-index: 1;
 }
 
@@ -17,10 +17,6 @@ header {
   margin: 1rem 0 !important;
 }
 
-.nav-list .nav-list-items {
-  text-transform: capitalize;
-}
-
 .nav-list .nav-list-items .nav-links {
   text-decoration: none;
   color: var(--materialRed);
@@ -28,10 +24,15 @@ header {
   margin: 4px;
 }
 
+.nav-links:hover,
+.nav-links.active {
+  font-weight: bold;
+}
+
 .nav-btn {
   outline: none;
   border: none;
-  text-transform: uppercase;
+  padding: 10px 5px;
   color: var(--materialRed);
   border: 2px solid var(--materialRed);
   border-radius: 8px;
@@ -54,7 +55,6 @@ header {
   color: var(--materialRed);
   transition: all 0.4s ease-in-out;
 }
-
 
 @media only screen and (max-width: 1024px) {
   header {
@@ -97,10 +97,11 @@ header {
     width: 100%;
     display: block;
     padding-left: 1.2rem !important;
-    margin: 0 !important;
+    margin:0 !important;
   }
 
-  .nav-links:hover {
+  .nav-links:hover,
+  .nav-links.active {
     background-color: var(--materialRed);
     color: white !important;
   }
@@ -108,7 +109,7 @@ header {
   .nav-btn {
     width: 100%;
     border-radius: 0px;
-    padding: 8px 0 8px 1.4rem;
+    padding: 8px 0 8px 1.2rem;
     border: none;
     font-size: 1rem;
     transition: none;
