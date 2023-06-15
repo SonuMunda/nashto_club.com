@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style/Home.css";
 import ServicesList from "../assets/api/ServicesList";
 import menuIntroImg from "/images/menu-intro-bg.jpg";
@@ -8,6 +8,7 @@ import BestDishesList from "../assets/api/BestDishesList";
 import quoteMan from "/images/quote-man.jpg";
 import { Link } from "react-router-dom";
 const Home = (props) => {
+
   return (
     <>
       <div className="home-wrapper">
