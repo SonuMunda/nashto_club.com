@@ -4,14 +4,14 @@ import { FaTimes } from "react-icons/fa";
 const Reservation = () => {
 
   const CloseWidget = () => {
-    document.getElementById("res-widget").style.height = "0%";
+    document.getElementById("res-widget").style.scale = "0";
   };
 
   return (
     <div className="reservation-wrapper">
       <div
         className="reservation-form-widget horizontal-center"
-        id="res-widget" style={{height:"0%"}}
+        id="res-widget"
       >
         <div className="res-form-container">
           <div className="res-form-row">

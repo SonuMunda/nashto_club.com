@@ -122,23 +122,23 @@ const Home = (props) => {
           <div className="quote-container">
             <div className="quote-row">
               <div className="quote-col center flex-column">
-                <div className="content" style={{ width: "65%" }}>
+                <div className="content" style={{ width: "70%" }}>
                   <div className="quote-heading">
-                    <h4 className="pt-4 d-flex align-items-center fw-bold">
+                    <h4 className="pt-4 d-flex align-items-center">
                       <div className="text-white">Some Words of</div>
                       <div
-                        className="px-1"
-                        style={{ color: "rgb(255 187 187)" }}
+                        className="px-2"
+                        style={{ color: "#ffff" }}
                       >
                         Satisfaction
                       </div>
                     </h4>
                   </div>
                   <div className="quote-line text-white">
-                    <h6 className="pt-2">
+                    <p className="pt-2">
                       To achieve this, it would be necessary to have uniform
                       grammar. pronunciation and more common words.
-                    </h6>
+                    </p>
                   </div>
 
                   <div className="saying pt-3 text-light">

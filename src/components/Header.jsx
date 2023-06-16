@@ -9,27 +9,47 @@ const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="space-between">
-      <div className="brand">
-        <NavLink to="/" className="text-decoration-none center">
-          <img src={logo} alt="" style={{ height: "32px" }} className="mx-1" />
-          <h4
-            style={{ color: "var(--materialRed)" }}
-            className=" fw-bold"
-          >
-            Nashto Club
-          </h4>
-        </NavLink>
+      <div className="d-flex align-items-center">
+        <div className="menubar py-1 px-2 mx-2">
+          <div onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </div>
+        </div>
+
+        <div className="brand">
+          <NavLink to="/" className="text-decoration-none center">
+            <img
+              src={logo}
+              alt=""
+              style={{ height: "32px" }}
+              className="mx-1"
+            />
+            <h4 style={{ color: "var(--materialRed)" }} className=" fw-bold">
+              Nashto Club
+            </h4>
+          </NavLink>
+        </div>
       </div>
+
       <nav className={isOpen ? "navbar nav-active" : "navbar"}>
         <div className="nav-container">
           <ul className="nav-list">
+            <li className="nav-list-items">
+              <NavLink
+                to="/"
+                className="nav-links"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                Home
+              </NavLink>
+            </li>
             <li className="nav-list-items">
               <NavLink
                 to="/timings"
                 className="nav-links"
                 onClick={() => setIsOpen(!isOpen)}
               >
-                Hours & Location
+                Timings
               </NavLink>
             </li>
             <li className="nav-list-items">
@@ -68,26 +88,20 @@ const Header = (props) => {
                 Contact
               </NavLink>
             </li>
-            <li className="nav-list-items">
-              <NavLink
-                to="#"
-                className="btn-link"
-                onClick={(e) => {
-                  setIsOpen(!isOpen);
-                  e.preventDefault();
-                  props.openWidget();
-                }}
-              >
-                <button className="nav-btn">Reservation</button>
-              </NavLink>
-            </li>
           </ul>
         </div>
       </nav>
-      <div className="menubar">
-        <div onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </div>
+
+      <div id="nav-btn">
+        <button
+          className="nav-btn"
+          onClick={(e) => {
+            e.preventDefault();
+            props.openWidget();
+          }}
+        >
+          Reservation
+        </button>
       </div>
     </header>
   );

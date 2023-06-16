@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="f-row">
           <div className="f-cols vertical-center">
-            <div className="brand">
+            <div className="footer-brand">
             <Link to="/" className="text-decoration-none center">
               <img src={logo} alt="plate" style={{ height: "32px" }} className="mx-1" />
               <h4

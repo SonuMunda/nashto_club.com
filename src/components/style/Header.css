@@ -22,11 +22,13 @@ header {
   color: var(--materialRed);
   padding: 10px 5px;
   margin: 4px;
+  text-transform: uppercase;
 }
 
 .nav-links:hover,
 .nav-links.active {
-  font-weight: bold;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
 }
 
 .nav-btn {
@@ -35,12 +37,12 @@ header {
   padding: 10px 5px;
   color: var(--materialRed);
   border: 2px solid var(--materialRed);
-  border-radius: 8px;
   font-size: 14px;
   padding: 14px 16px;
   margin: 0 8px;
   background-color: #ffff;
   transition: all 0.4s ease-in-out;
+  text-transform: uppercase;
 }
 
 .nav-btn:hover {
@@ -57,7 +59,6 @@ header {
 }
 
 @media only screen and (max-width: 1024px) {
-  
   .navbar {
     position: fixed;
     top: 66px;
@@ -95,26 +96,17 @@ header {
     width: 100%;
     display: block;
     padding-left: 1.2rem !important;
-    margin:0 !important;
+    margin: 0.5px 0 !important;
   }
 
   .nav-links:hover,
   .nav-links.active {
     background-color: var(--materialRed);
     color: white !important;
+    border: none !important;
   }
 
-  .nav-btn {
-    width: 100%;
-    border-radius: 0px;
-    padding: 8px 0 8px 1.2rem;
-    border: none;
-    font-size: 1rem;
-    transition: none;
-    text-transform: capitalize;
-    text-align: left;
-    margin: 0;
-  }
+ 
   .menubar {
     display: block;
   }
@@ -123,5 +115,17 @@ header {
 @media only screen and (max-width: 480px) {
   header {
     padding: 30px;
+  }
+
+  .brand h4{
+    display: none;
+  }
+
+  .menubar {
+    font-size: 1.5rem;
+  }
+
+  .nav-btn {
+    padding: 10px;
   }
 }
