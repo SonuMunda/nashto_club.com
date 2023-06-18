@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style/Order.css";
-import sorryImg from '/images/sorry.png'
+import sorryImg from "/images/sorry.png";
 import BrunchMenuList from "../assets/api/BrunchMenuList";
 import LunchMenuList from "../assets/api/LunchMenuList";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
+import OrderingForm from "../components/OrderingForm";
+import { FaShoppingCart, FaTimes } from "react-icons/fa";
 
 const Order = () => {
   const currentTime = new Date();
   const [cart, setCart] = useState([]);
+  const [orderDetails, setOrderDetails] = useState(null);
+  const [isCartOpen, setIsCartOpen] = useState(false); // Added cart visibility state
 
   const addToCart = (item) => {
     // Check if the item already exists in the cart
@@ -50,6 +54,8 @@ const Order = () => {
     );
   };
 
+  const cartItemCount = cart.length;
+
   const calculateTotalPrice = () => {
     let total = 0;
     cart.forEach((item) => {
@@ -86,6 +92,25 @@ const Order = () => {
 
   const dinnerMenu = DinnerMenuList;
 
+  const handlePlaceOrder = () => {
+    const orderItems = cart.map((item) => ({
+      dishName: item.dishName,
+      dishPrice: item.dishPrice,
+      quantity: item.quantity,
+    }));
+
+    const totalAmount = calculateTotalPrice();
+
+    const orderDetails = {
+      items: orderItems,
+      totalAmount: totalAmount,
+    };
+
+    setOrderDetails(orderDetails);
+
+    document.getElementById("order-form").style.scale = "1";
+  };
+
   const MenuSection = ({ title, menuItems }) => (
     <div className="order-section">
       <div className="order-menu-list my-3">
@@ -118,7 +143,28 @@ const Order = () => {
         })}
       </div>
 
-      <div className="cart">
+      <div
+        className="cart-icon d-flex align-items center"
+        onClick={() => {
+          setIsCartOpen(true);
+        }}
+      >
+        <FaShoppingCart />
+        {cartItemCount > 0 && (
+          <div className="cart-count">{cartItemCount}</div>
+        )}
+      </div>
+
+      <div className={isCartOpen ? "cart cart-active" : "cart"}>
+        <div
+          className="close-cart-btn center"
+          onClick={() => {
+            setIsCartOpen(false);
+          }}
+        >
+          <FaTimes />
+        </div>
+
         <h4 className="title p-3 m-3">Nashto Cart</h4>
         {cart.length > 0 ? (
           <div className="cart-item">
@@ -164,7 +210,9 @@ const Order = () => {
               </div>
 
               <div className="order-btn">
-                <button type="button">Place Order</button>
+                <button type="button" onClick={handlePlaceOrder}>
+                  Place Order
+                </button>
               </div>
             </div>
           </div>
@@ -179,15 +227,25 @@ const Order = () => {
 
   return (
     <div>
+      <OrderingForm
+        orderDetails={orderDetails}
+        handleSubmit={setOrderDetails}
+      />
+
       {isBrunchTime && <MenuSection title="Brunch" menuItems={brunchMenu} />}
       {isLunchTime && <MenuSection title="Lunch" menuItems={lunchMenu} />}
       {isDinnerTime && <MenuSection title="Dinner" menuItems={dinnerMenu} />}
       {!isBrunchTime && !isLunchTime && !isDinnerTime && (
         <div className="timings-message center flex-column p-4">
-        <img src={sorryImg} alt="sorry icon" style={{width:"15%"}}/>
-          <h1 className="text-center">Sorry, we are currently not serving any meals at this time.</h1>
-          <p className="py-2 fs-5 text-center">
-            Please check the ordering timings <Link to="/timings" style={{color:"var(--materialRed)"}}> click here.</Link>
+          <img src={sorryImg} alt="sorry icon" style={{ width: "15%" }} />
+          <h1 className="text-center">
+            Sorry, we are currently not serving any meals at this time.
+          </h1>
+          <p className="py-2  fs-5 text-center">
+            Please check the ordering timings
+            <Link to="/timings" className="ms-1" style={{ color: "var(--materialRed)" }}>
+              click here.
+            </Link>
           </p>
         </div>
       )}
