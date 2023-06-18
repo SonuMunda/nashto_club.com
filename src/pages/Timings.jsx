@@ -12,7 +12,7 @@ const Timings = () => {
           </div>
           <h1 className="timings-heading fw-bold">Hours & Location</h1>
           <p className="time-alert-msg pt-3">
-            Don't forget to check the timings before ordering{" "}
+            Don't forget to check the timings before ordering.
           </p>
         </div>
       </section>
@@ -44,6 +44,9 @@ const Timings = () => {
             <div className="timings-details-col">
               <div className="timing-title">
                 <h4 className="heading">Ordering Timings</h4>
+                <p className="pb-3 px-2 text-uppercase text-danger fw-bold text-center">
+                  "Ordering is not possible outside Kharar"
+                </p>
                 <div className="timings-desc center flex-column">
                   <h6 className="food-category">Brunch</h6>
                   <p className="pb-3">09:00AM - 10:30AM</p>

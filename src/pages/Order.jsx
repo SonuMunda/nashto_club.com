@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style/Order.css";
+import sorryImg from '/images/sorry.png'
 import BrunchMenuList from "../assets/api/BrunchMenuList";
 import LunchMenuList from "../assets/api/LunchMenuList";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
@@ -67,7 +69,7 @@ const Order = () => {
   lunchEndTime.setHours(13, 0, 0); // Set lunch end time to 01:00PM
 
   const dinnerStartTime = new Date();
-  dinnerStartTime.setHours(16, 0, 0); // Set dinner start time to 05:00PM
+  dinnerStartTime.setHours(17, 0, 0); // Set dinner start time to 05:00PM
   const dinnerEndTime = new Date();
   dinnerEndTime.setHours(20, 30, 0); // Set dinner end time to 07:30PM
 
@@ -181,9 +183,12 @@ const Order = () => {
       {isLunchTime && <MenuSection title="Lunch" menuItems={lunchMenu} />}
       {isDinnerTime && <MenuSection title="Dinner" menuItems={dinnerMenu} />}
       {!isBrunchTime && !isLunchTime && !isDinnerTime && (
-        <div>
-          <h2>Menu</h2>
-          <p>Sorry, we are currently not serving any meals.</p>
+        <div className="timings-message center flex-column p-4">
+        <img src={sorryImg} alt="sorry icon" style={{width:"15%"}}/>
+          <h1 className="text-center">Sorry, we are currently not serving any meals at this time.</h1>
+          <p className="py-2 fs-5 text-center">
+            Please check the ordering timings <Link to="/timings" style={{color:"var(--materialRed)"}}> click here.</Link>
+          </p>
         </div>
       )}
     </div>

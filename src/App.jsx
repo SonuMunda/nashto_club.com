@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./style/App.css";
 import "./style/App.css";
-import openWidget from "./assets/api/OpenWidget";
+import openWidget from "./assets/api/openWidget";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Timings from "./pages/Timings";
