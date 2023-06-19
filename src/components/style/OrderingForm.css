@@ -9,7 +9,7 @@
   transition: all 0.4s;
 }
 
-.form-container {
+.order-form-container {
   position: relative;
   width: 480px;
   background-color: var(--materialRed);
@@ -62,4 +62,10 @@
   background-color: #ffff;
   color: var(--materialRed);
   transition: all 0.4s ease-in-out;
+}
+
+@media screen and (max-width:480px){
+  .order-form-container{
+    width: 95%;
+  }
 }

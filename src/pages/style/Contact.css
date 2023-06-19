@@ -10,7 +10,7 @@
   height: 100%;
   width: 100%;
   background: rgba(0, 0, 0, 0.4)
-    url("./images/pexels-tima-miroshnichenko-5725589.jpg") center center/cover
+    url("../images/pexels-tima-miroshnichenko-5725589.jpg") center center/cover
     no-repeat;
   background-blend-mode: darken;
   opacity: 1;
@@ -31,8 +31,15 @@
   padding: 16px;
 }
 
+.form-group input:invalid{
+  background-color: #ffeded;
+}
+
+.form-group input:valid{
+  background-color: #c7ffe5;
+}
 .form-group .user-inputs {
-  color: var(--materialRed);
+  color: black;
   outline: none;
   border: none;
   border-radius: 4px;

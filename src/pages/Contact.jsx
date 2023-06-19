@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style/Contact.css";
+
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform form submission logic or API call here
+    console.log(formData);
+  };
+
   return (
     <div className="contact-wrapper">
       <div id="contact-intro" className="center">
@@ -17,7 +39,9 @@ const Contact = () => {
           <div className="mail">
             <p className="my-2">
               <i className="fa-solid fa-envelope"></i> <span>Email: </span>
-              <span className="text-decoration-underline">nashtoclub@email.com</span>
+              <span className="text-decoration-underline">
+                nashtoclub@email.com
+              </span>
             </p>
           </div>
           <div className="address mb-4">
@@ -26,44 +50,64 @@ const Contact = () => {
           </div>
 
           <div className="form-container my-3">
-            <form action="https://formspree.io/f/xyyaegbw" method="POST">
+            <form onSubmit={handleSubmit}>
               <div className="form-row vertical-center">
                 <div className="form-col">
                   <div className="form-group">
                     <input
                       type="text"
-                      name="name-field"
+                      name="name"
                       className="user-inputs"
                       id="name-field"
-                      placeholder="Name"
+                      placeholder="Ram Kumar"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      minLength={3}
+                      maxLength={26}
+                      pattern="[A-Za-z]+"
+                      required
                     />
                   </div>
                   <div className="form-group">
                     <input
                       type="email"
-                      name="email-field"
+                      name="email"
                       className="user-inputs"
                       id="email-field"
-                      placeholder="Email"
+                      placeholder="ram@email.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      maxLength={24}
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                      required
                     />
                   </div>
                   <div className="form-group">
                     <input
                       type="text"
-                      name="phone-field"
+                      name="phone"
                       className="user-inputs"
                       id="phone-field"
-                      placeholder="Phone"
+                      placeholder="9800000098"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      pattern="[0-9]{10}"
+                      minLength={10}
+                      maxLength={12}
+                      required
                     />
                   </div>
                 </div>
                 <div className="form-col">
                   <div className="form-group">
                     <textarea
-                      name="msg-area"
+                      name="message"
                       className="user-inputs"
                       id="msg-area"
                       placeholder="Message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
                     ></textarea>
                   </div>
                 </div>

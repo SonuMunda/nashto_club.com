@@ -9,7 +9,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4) url("images/main-bg.jpg") center center/cover
+  background: rgba(0, 0, 0, 0.4) url("../images/main-bg.jpg") center center/cover
     no-repeat;
   z-index: -1;
 }
@@ -114,7 +114,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  background: rgba(0, 0, 0, 0.176) url("./images/quote-bg.jpg") center
+  background: rgba(0, 0, 0, 0.176) url("../images/quote-bg.jpg") center
     center/cover no-repeat;
   background-blend-mode: darken;
   z-index: -1;

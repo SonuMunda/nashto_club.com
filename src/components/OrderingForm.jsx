@@ -46,7 +46,7 @@ function OrderingForm({ orderDetails }) {
   };
   return (
     <div className="order-form center" id="order-form">
-      <div className="form-container flex-column center">
+      <div className="order-form-container flex-column center">
         <div
           className="close-btn"
           onClick={() => {

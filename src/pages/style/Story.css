@@ -9,7 +9,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4) url("./images/story-intro-background.jpg")
+  background: rgba(0, 0, 0, 0.4) url("../images/story-intro-background.jpg")
     center center/cover no-repeat;
   background-blend-mode: darken;
   opacity: 1;
@@ -78,6 +78,13 @@
 }
 
 @media only screen and (max-width: 688px) {
+  #story-intro {
+    height: 65vh;
+  }
+
+  .story-heading .heading {
+    font-size: 2.5rem;
+  }
   .some-lines {
     font-size: 1rem;
   }
