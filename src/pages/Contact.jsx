@@ -21,6 +21,13 @@ const Contact = () => {
     e.preventDefault();
     // Perform form submission logic or API call here
     console.log(formData);
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
   };
 
   return (
@@ -64,7 +71,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       minLength={3}
                       maxLength={26}
-                      pattern="[A-Za-z]+"
+                      pattern="[A-Za-z ]+"
                       required
                     />
                   </div>
