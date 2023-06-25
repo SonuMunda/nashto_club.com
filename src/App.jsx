@@ -38,11 +38,11 @@ function App() {
           <Header openWidget={openWidget} />
           <Routes>
             <Route path="/" element={<Home openWidget={openWidget} />} />
-            <Route path="https://nashtoclub.netlify.app//timings" element={<Timings />} />
-            <Route path="https://nashtoclub.netlify.app//timings/menu" element={<Menu />} />
-            <Route path="https://nashtoclub.netlify.app//timings/story" element={<Story />} />
-            <Route path="https://nashtoclub.netlify.app//timings/order" element={<Order />} />
-            <Route path="https://nashtoclub.netlify.app//timings/contact" element={<Contact />} />
+            <Route path="https://nashtoclub.netlify.app/timings" element={<Timings />} />
+            <Route path="https://nashtoclub.netlify.app/menu" element={<Menu />} />
+            <Route path="https://nashtoclub.netlify.app/story" element={<Story />} />
+            <Route path="https://nashtoclub.netlify.app/order" element={<Order />} />
+            <Route path="https://nashtoclub.netlify.app/contact" element={<Contact />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Reservation />
