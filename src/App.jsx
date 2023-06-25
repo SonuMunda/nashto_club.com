@@ -38,12 +38,12 @@ function App() {
           <Header openWidget={openWidget} />
           <Routes>
             <Route path="/" element={<Home openWidget={openWidget} />} />
-            <Route path="/timings" element={<Timings />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/story" element={<Story />} />
-            <Route path="/order" element={<Order />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<ErrorPage />} />
+            <Route path="https://nashtoclub.netlify.app/timings" element={<Timings />} />
+            <Route path="https://nashtoclub.netlify.app/timings/menu" element={<Menu />} />
+            <Route path="https://nashtoclub.netlify.app/timings/story" element={<Story />} />
+            <Route path="https://nashtoclub.netlify.app/timings/order" element={<Order />} />
+            <Route path="https://nashtoclub.netlify.app/timings/contact" element={<Contact />} />
+            <Route path="https://nashtoclub.netlify.app/timings/*" element={<ErrorPage />} />
           </Routes>
           <Reservation />
           <Footer />
