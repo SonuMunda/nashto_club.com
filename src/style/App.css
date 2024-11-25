@@ -1,5 +1,21 @@
 :root {
-  --materialRed: #e53935;
+  --primary-dark-red: #8b0000;
+  --dark-red-hover: #a00000;
+  --secondary-wheat: #f5deb3;
+  --accent-gold: #ffd700;
+  --background-ghost-white: #f8f8ff;
+  --text-black: #000000;
+  --text-gray-md: #3b3b3b;
+  --text-gray: #808080;
+  --text-white: #ffffff;
+  --background-overlay: rgba(0, 0, 0, 0.6);
+  --form-bg: #ffffff;
+  --btn-bg: #8B0000;
+  --btn-hover-bg: #FFD700;
+  --btn-hover-text: #000000;
+  --text-color: #333333;
+  --input-bg: #f8f8f8;
+  --input-focus-border: #FFD700;
 }
 
 * {
@@ -10,6 +26,9 @@
 body {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
+  background-color: var(--background-ghost-white);
+  color: var(--text-dark);
+  /* font-family: Arial, sans-serif; */
 }
 
 /* Hide the default scroll bar */
@@ -37,9 +56,10 @@ h2,
 h3,
 h4,
 h5,
+nav,
 p,
 ul {
-  margin: 0 !important;
+  margin: 0 0 !important;
 }
 
 .spinner-container {
@@ -49,16 +69,16 @@ ul {
   height: 100vh;
 }
 
-.spinner-container .loader{
+.spinner-container .loader {
   height: 10%;
   animation: loading infinite linear 1s;
 }
 
 @keyframes loading {
-  from{
+  from {
     transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(360deg);
   }
 }

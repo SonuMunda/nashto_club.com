@@ -8,7 +8,6 @@ import BestDishesList from "../assets/api/BestDishesList";
 import quoteMan from "/images/quote-man.jpg";
 import { Link } from "react-router-dom";
 const Home = (props) => {
-
   return (
     <>
       <div className="home-wrapper">
@@ -23,7 +22,7 @@ const Home = (props) => {
               </h1>
             </div>
             <p className="slogan">
-              You are going to Enter in the verse of great Indian Spices
+              You are going to enter in the verse of great Indian Spices!
             </p>
 
             <div className="home-btns">
@@ -44,10 +43,8 @@ const Home = (props) => {
           </div>
         </section>
 
-        <hr />
-
-        <section id="about-menu">
-          <div className="about-menu-container">
+        <section id="about-menu center">
+          <div className="about-menu-container container py-4 my-4">
             <div className="about-menu-row px-2">
               <div className="about-menu-cols">
                 <div className="menu-img">
@@ -64,7 +61,7 @@ const Home = (props) => {
                     <h3 className="title">Our Menu</h3>
                   </div>
                   <div className="menu-description">
-                    <p className="py-4">
+                    <p className="py-4 text-secondary">
                       Our creative, food and beverage program combines
                       satisfying staples with imaginative twists. From boozy
                       drag show brunches, classic Americana breakfasts, special
@@ -82,14 +79,10 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <hr />
         <section id="services">
           <div className="services-container center flex-column">
             <div className="services-heading py-4 my-2">
-              <h1
-                className="heading text-light"
-                style={{ borderBottom: "4px solid white" }}
-              >
+              <h1 className="heading" style={{ color: "var(--text-gray-md)" }}>
                 Our Services
               </h1>
             </div>
@@ -97,16 +90,13 @@ const Home = (props) => {
           </div>
         </section>
 
-        <hr />
-
         <section id="best-dishes" className="center">
-          <div className="best-dishes-container center flex-column pb-4">
+          <div className="best-dishes-container container center flex-column pb-4">
             <div className="serices-heading py-4 my-2">
               <h1
                 className="heading"
                 style={{
-                  borderBottom: "4px solid var(--materialRed)",
-                  color: "var(--materialRed)",
+                  color: "var(--text-gray-md)",
                 }}
               >
                 Best Dishes
@@ -126,22 +116,19 @@ const Home = (props) => {
                   <div className="quote-heading">
                     <h4 className="pt-4 d-flex align-items-center">
                       <div className="text-white">Some Words of</div>
-                      <div
-                        className="px-2"
-                        style={{ color: "#ffff" }}
-                      >
+                      <div className="px-2" style={{ color: "var(--accent-gold)" }}>
                         Satisfaction
                       </div>
                     </h4>
                   </div>
-                  <div className="quote-line text-white">
+                  <div className="quote-line">
                     <p className="pt-2">
                       To achieve this, it would be necessary to have uniform
                       grammar. pronunciation and more common words.
                     </p>
                   </div>
 
-                  <div className="saying pt-3 text-light">
+                  <div className="saying pt-3">
                     <p className="pt-4">
                       I am so happy, my dear friend, so absorbed in the
                       exquisite sense of mere tranquil existence, that neglect
@@ -151,7 +138,7 @@ const Home = (props) => {
                     </p>
                   </div>
 
-                  <p className="pt-2 text-light text-uppercase fw-100">
+                  <p className="pt-2 text-warning text-uppercase fw-500">
                     - Mr. Amit Chaturvedi
                   </p>
                 </div>

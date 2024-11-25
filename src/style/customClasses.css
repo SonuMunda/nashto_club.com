@@ -33,14 +33,14 @@
 
 .title {
   text-align: center;
-  color: var(--materialRed);
+  color: var(--primary-dark-red);
   font-weight: bolder !important;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .heading {
   text-align: center;
   font-weight: bolder !important;
-  text-transform: uppercase;
+  text-transform: capitalize;
   padding: 1rem 0.5rem;
 }

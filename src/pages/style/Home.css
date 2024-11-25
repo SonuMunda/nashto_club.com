@@ -1,5 +1,5 @@
 #home-intro {
-  height: 100vh;
+  height: 75vh;
   width: 100%;
   position: relative;
 }
@@ -9,38 +9,64 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4) url("../images/main-bg.jpg") center center/cover
-    no-repeat;
+  background: rgba(0, 0, 0, 0.176)
+    url("https://images.pexels.com/photos/775031/pexels-photo-775031.jpeg?auto=compress&cs=tinysrgb&w=400")
+    center center/cover no-repeat;
+  background-blend-mode: darken;
   z-index: -1;
 }
 
 .home-container {
-  padding: 4rem;
+  display: flex;
   flex-direction: column;
+  max-width: 800px;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(15px);
-  color: white;
 }
 
 .greet-msg {
   font-family: "Playball", cursive;
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
 }
 
 .brand-name h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--secondary-wheat);
+}
+
+.slogan {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--text-white);
+  font-style: italic;
+}
+
+.home-btns{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .home-btn {
-  padding: 12px 24px;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: white;
-  border-radius: 8px;
-  margin: 10px 4px;
+  padding: 12px 30px;
+  font-size: 14px;
+  color: var(--text-white);
+  border-radius: 25px;
   border: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .home-btns #reservation-btn {
-  background-color: var(--materialRed);
+  background-color: var(--primary-dark-red);
 }
 
 .home-btns #menu-btn {
@@ -54,11 +80,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  align-items: center;
-}
-
-.about-menu-cols {
-  padding: 0 2rem;
 }
 
 .menu-img img {
@@ -70,23 +91,21 @@
 .menu-link-btn {
   border: none;
   outline: none;
-  padding: 10px;
-  background-color: var(--materialRed);
+  padding: 10px 14px;
+  background-color: var(--primary-dark-red);
   color: white;
-  text-transform: uppercase;
+  border-radius: 4px;
   transition: all 0.2s ease-in-out;
-  border-radius: 8px;
 }
 
 .menu-link-btn:hover {
-  background-color: rgb(222, 45, 45);
-  box-shadow: 0px 0px 4px 4px rgba(255, 0, 0, 0.139);
+  background-color: var(--dark-red-hover);
 }
 
 /* Section Services */
 
 #services {
-  background-color: var(--materialRed);
+  background-color: var(--secondary-wheat);
 }
 
 .services-container {
@@ -96,8 +115,8 @@
 
 /* Section Best Dishes */
 
-.best-dishes-container {
-  width: 100%;
+#best-dishes {
+  background-color: var(--background-ghost-white);
 }
 
 /* Section Quote */
@@ -114,7 +133,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  background: rgba(0, 0, 0, 0.176) url("../images/quote-bg.jpg") center
+  background: rgba(86, 86, 86, 0.5) url("../images/quote-bg.jpg") center
     center/cover no-repeat;
   background-blend-mode: darken;
   z-index: -1;
@@ -122,6 +141,7 @@
 .quote-container {
   width: 80%;
   padding: 3rem 0;
+  background-color: rgba(255, 255, 255, 0.276);
   backdrop-filter: blur(20px);
 }
 
@@ -134,9 +154,6 @@
 }
 
 @media only screen and (max-width: 680px) {
-  #home-intro {
-    height: 65vh;
-  }
 
   .home-container {
     padding: 1rem;

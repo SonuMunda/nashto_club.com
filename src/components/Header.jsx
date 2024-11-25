@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { HiBars3 } from "react-icons/hi2";
 import "./style/Header.css";
 import logo from "../assets/favicon.png";
 
@@ -9,26 +9,13 @@ const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="space-between">
-      <div className="d-flex align-items-center">
-        <div className="menubar py-1 px-2 mx-2">
-          <div onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FaTimes /> : <FaBars />}
-          </div>
-        </div>
-
-        <div className="brand">
-          <NavLink to="/" className="text-decoration-none center">
-            <img
-              src={logo}
-              alt=""
-              style={{ height: "32px" }}
-              className="mx-1"
-            />
-            <h4 style={{ color: "var(--materialRed)" }} className=" fw-bold">
-              Nashto Club
-            </h4>
-          </NavLink>
-        </div>
+      <div className="brand">
+        <NavLink to="/" className="text-decoration-none center">
+          <img src={logo} alt="" style={{ height: "32px" }} className="mx-1" />
+          <h4 style={{ color: "rgb(32, 32, 32)" }} className=" fw-bold">
+            nashtoclub
+          </h4>
+        </NavLink>
       </div>
 
       <nav className={isOpen ? "navbar nav-active" : "navbar"}>
@@ -90,9 +77,7 @@ const Header = (props) => {
             </li>
           </ul>
         </div>
-      </nav>
 
-      <div id="nav-btn">
         <button
           className="nav-btn"
           onClick={(e) => {
@@ -102,6 +87,12 @@ const Header = (props) => {
         >
           Reservation
         </button>
+      </nav>
+
+      <div className="menubar me-2">
+        <div onClick={() => setIsOpen(!isOpen)}>
+          <HiBars3 />
+        </div>
       </div>
     </header>
   );

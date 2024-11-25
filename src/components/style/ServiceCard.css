@@ -1,6 +1,6 @@
 .services-card-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
   align-items: center;
   justify-content: center;
@@ -10,21 +10,18 @@
 .services-card {
   padding: 1rem;
   transition: all 0.4s ease-in-out;
-  border-radius: 10px;
   background-color: #ffffff;
+  border-radius: 4px;
 }
 
 .service-title h3 {
-  text-align: center;
-  text-transform: uppercase;
-  color: red;
+  color: var(--primary-dark-red);
   font-weight: bold;
+  padding: 0 1.2rem;
 }
 
 .service-img img {
-  box-shadow: 0px 0px 1px 1px var(--materialRed);
   display: block;
   margin: auto;
   width: 86%;
-  border-radius: 8px;
 }
