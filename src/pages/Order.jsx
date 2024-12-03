@@ -90,7 +90,7 @@ const Order = () => {
   const dinnerStartTime = new Date();
   dinnerStartTime.setHours(17, 0, 0);
   const dinnerEndTime = new Date();
-  dinnerEndTime.setHours(24, 30, 0);
+  dinnerEndTime.setHours(21, 30, 0);
 
   //time checks
   const isBrunchTime =
