@@ -29,9 +29,8 @@ const Menu = () => {
         </div>
       </div>
 
-      <hr />
       <section id="starters">
-        <div className="starters-container">
+        <div className="starters-container my-4">
           <div className="starters-heading menu-heading">
             <h3 className="title">Starters</h3>
           </div>

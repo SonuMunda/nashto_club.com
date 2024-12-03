@@ -85,7 +85,7 @@ const Header = (props) => {
             props.openWidget();
           }}
         >
-          Reservation
+          Book a Table
         </button>
       </nav>
 

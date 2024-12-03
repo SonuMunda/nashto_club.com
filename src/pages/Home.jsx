@@ -18,7 +18,7 @@ const Home = (props) => {
             </div>
             <div className="brand-name">
               <h1 className="py-2">
-                <span className="text-uppercase fw-bold">Nashto Club</span>
+                <span className="fw-bold">Nashto Club</span>
               </h1>
             </div>
             <p className="slogan">
@@ -80,7 +80,7 @@ const Home = (props) => {
           </div>
         </section>
         <section id="services">
-          <div className="services-container center flex-column">
+          <div className="services-container container center flex-column">
             <div className="services-heading py-4 my-2">
               <h1 className="heading" style={{ color: "var(--text-gray-md)" }}>
                 Our Services
@@ -91,7 +91,7 @@ const Home = (props) => {
         </section>
 
         <section id="best-dishes" className="center">
-          <div className="best-dishes-container container center flex-column pb-4">
+          <div className="best-dishes-container container center flex-column my-4 pb-4">
             <div className="serices-heading py-4 my-2">
               <h1
                 className="heading"
@@ -106,30 +106,31 @@ const Home = (props) => {
           </div>
         </section>
 
-        <hr />
-
         <section id="quote" className="center">
-          <div className="quote-container">
+          <div className="quote-container my-4 rounded">
             <div className="quote-row">
               <div className="quote-col center flex-column">
-                <div className="content" style={{ width: "70%" }}>
+                <div className="content" style={{ width: "80%" }}>
                   <div className="quote-heading">
                     <h4 className="pt-4 d-flex align-items-center">
                       <div className="text-white">Some Words of</div>
-                      <div className="px-2" style={{ color: "var(--accent-gold)" }}>
+                      <div
+                        className="px-2"
+                        style={{ color: "var(--accent-gold)" }}
+                      >
                         Satisfaction
                       </div>
                     </h4>
                   </div>
                   <div className="quote-line">
-                    <p className="pt-2">
+                    <p className="pt-2 text-white">
                       To achieve this, it would be necessary to have uniform
                       grammar. pronunciation and more common words.
                     </p>
                   </div>
 
                   <div className="saying pt-3">
-                    <p className="pt-4">
+                    <p className="text-white">
                       I am so happy, my dear friend, so absorbed in the
                       exquisite sense of mere tranquil existence, that neglect
                       my talents. To achieve this, it would be necessary to have

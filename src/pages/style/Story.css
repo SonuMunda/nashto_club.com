@@ -9,7 +9,8 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4) url("../images/story-intro-background.jpg")
+  background: rgba(0, 0, 0, 0.4)
+    url("https://images.pexels.com/photos/279768/pexels-photo-279768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
     center center/cover no-repeat;
   background-blend-mode: darken;
   opacity: 1;
@@ -20,11 +21,11 @@
   font-size: 3.5rem;
 }
 
-.some-lines {
+.some-lines .text {
   padding: 3rem;
   font-size: 1.4rem;
   color: white;
-  background-color: var(--materialRed);
+  background-color: var(--primary-dark-red);
 }
 
 /* Menu Intro Section */
@@ -64,6 +65,13 @@
   width: 80%;
 }
 
+/* Crew */
+#crew {
+  background-color: var(--secondary-wheat);
+}
+
+/* Collabs */
+
 #collabs {
   border: 4px double var(--materialRed);
   margin-bottom: 1rem;
@@ -74,20 +82,16 @@
 }
 
 .collabs-col img {
-  height: 120px;
+  height: 100px;
+  transition: all 0.4s ease-in-out;
 }
 
-@media only screen and (max-width: 688px) {
-  #story-intro {
-    height: 65vh;
-  }
+.collabs-col img:hover {
+ transform: scale(1.025);
+}
 
-  .story-heading .heading {
-    font-size: 2.5rem;
-  }
-  .some-lines {
-    font-size: 1rem;
-  }
+@media only screen and (max-width: 764px) {
+
   .experience-row {
     flex-wrap: wrap-reverse;
   }

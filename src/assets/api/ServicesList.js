@@ -4,13 +4,13 @@ const ServicesList = [
     id: "brunch",
     name: "Brunch",
     img: "./images/brunch.jpg",
-    desc: "If you feeling hungry just visit our place or just give online order Tasty & Healthy Brunch.",
+    desc: "If you feeling hungry just visit our place or just give online order Tasty and Healthy Brunch.",
   },
   {
     id: "lunch",
     name: "Lunch",
     img: "./images/lunch.jpg",
-    desc: "Feeling hungry just visit our place or just give online order for Tasty & Healthy Lunch.",
+    desc: "Feeling hungry just visit our place or just give online order for Tasty and Healthy Lunch.",
   },
   {
     id: "dinner",

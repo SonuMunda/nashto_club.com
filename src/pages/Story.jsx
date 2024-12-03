@@ -12,26 +12,15 @@ const Story = () => {
   return (
     <div className="story-wrapper">
       <section id="story-intro" className="center">
-        <div className="story-intro-container">
+        <div className="story-intro-container container">
           <div className="story-heading">
             <h1 className="heading text-white">Our Story</h1>
           </div>
         </div>
       </section>
-      <hr />
-      <div className="some-lines">
-        <p>
-          The Nashto Club -- reinvents the neighborhood brunch-ery, combining
-          timeless inspiration from classic Indian with inventive and playful
-          modern flair. With influences ranging from the 2000 diner to the
-          elegant railway dining cars of days past, you'll find a nostalgic
-          collection of comforts, classics and curiosities with a modern twist.
-        </p>
-      </div>
-      <hr />
 
       <section id="about-menu">
-        <div className="about-menu-container mb-4">
+        <div className="about-menu-container container my-4 py-4">
           <div className="about-menu-row px-2">
             <div className="about-menu-cols">
               <div className="menu-img">
@@ -63,10 +52,9 @@ const Story = () => {
           </div>
         </div>
       </section>
-      <hr />
 
       <section id="experience" className="center">
-        <div className="experience-container">
+        <div className="experience-container container my-4 py-4">
           <div className="experience-row">
             <div className="experience-col center flex-column">
               <div className="experience-title">
@@ -101,42 +89,52 @@ const Story = () => {
         </div>
       </section>
 
-      <hr />
-
       <section id="crew">
-        <div className="crew-container">
+        <div className="crew-container container py-4 mt-4">
           <div className="crew-heading">
-            <h1 className="title pt-3">Our Crew</h1>
+            <h2 className="title mt-4">Our Crew</h2>
           </div>
-          <div className="crew-card-container pb-4">
+          <div className="crew-card-container py-4">
             <CrewMemberCard crewList={CrewMembersList} />
           </div>
         </div>
       </section>
 
-      <section id="collabs">
-        <div className="collabs-container py-4">
-          <div className="crew-heading">
-            <h4 className="title py-3">Our Collaborations</h4>
-          </div>
-
-          <div className="collabs-row center">
-          <div className="collabs-col">
-          <img src={Zomato_Logo} alt="Zomato_Logo" />
-          </div>
-          <div className="collabs-col">
-          <img src={Swiggy_Logo} alt="Swiggy_Logo" />
-          </div>
-          <div className="collabs-col">
-          <img src={UberEats_Logo} alt="UberEats_Logo" />
-          </div>
-          <div className="collabs-col">
-          <img src={Dominos_Logo} alt="Dominos_Logo" />
-          </div>
-          </div>
+      <section className="lines">
+        <div className="some-lines">
+          <p className="text">
+            The Nashto Club -- reinvents the neighborhood brunch-ery, combining
+            timeless inspiration from classic Indian with inventive and playful
+            modern flair. With influences ranging from the 2000 diner to the
+            elegant railway dining cars of days past, you'll find a nostalgic
+            collection of comforts, classics and curiosities with a modern
+            twist.
+          </p>
         </div>
       </section>
 
+      <section id="collabs">
+        <div className="collabs-container mt-4 py-4">
+          <div className="crew-heading mb-4">
+            <h2 className="title py-4">Our Collaborations</h2>
+          </div>
+
+          <div className="collabs-row center">
+            <div className="collabs-col">
+              <img src={Zomato_Logo} alt="Zomato_Logo" />
+            </div>
+            <div className="collabs-col">
+              <img src={Swiggy_Logo} alt="Swiggy_Logo" />
+            </div>
+            <div className="collabs-col">
+              <img src={UberEats_Logo} alt="UberEats_Logo" />
+            </div>
+            <div className="collabs-col">
+              <img src={Dominos_Logo} alt="Dominos_Logo" />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

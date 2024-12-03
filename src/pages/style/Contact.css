@@ -1,88 +1,80 @@
-#contact-intro {
-  height: 100vh;
-  width: 100%;
-  position: relative;
+.contact-wrapper {
+  padding: 6rem 0;
+  min-height: 100vh;
+  background-color: #f9f9f9;
 }
 
-#contact-intro::before {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4)
+#contact{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 1200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: var(--background-ghost-white);
+}
+
+.contact-details {
+  flex: 1;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6)
     url("../images/pexels-tima-miroshnichenko-5725589.jpg") center center/cover
     no-repeat;
-  background-blend-mode: darken;
-  opacity: 1;
-  z-index: -1;
+    background-blend-mode: overlay;
+  color: #ffffff;
 }
 
-.contact-intro-container {
-  color: white;
+.contact-details h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.contact-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.form-container {
+  flex: 1;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
 }
 
 .form-group {
-  margin: 10px 5px;
+  margin-bottom: 1rem;
 }
 
-.form-group input {
-  height: 48px;
-  width: 320px;
-  padding: 16px;
-}
-
-.form-group input:invalid{
-  background-color: #ffeded;
-}
-
-.form-group input:valid{
-  background-color: #c7ffe5;
-}
-.form-group .user-inputs {
-  color: black;
-  outline: none;
-  border: none;
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.form-group #msg-area {
-  height: 164px;
-  width: 320px;
-  padding: 8px;
-  margin-top: 2px;
+.form-group textarea {
+  resize: none;
+  height: 150px;
 }
 
 .form-msg-btn #send-btn {
-  padding: 10px;
-  text-transform: uppercase;
-  outline: none;
-  border: none;
-  background-color: var(--materialRed);
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: var(--primary-dark-red);
   color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .form-msg-btn #send-btn:hover {
-  background-color: #c62828;
+  background-color: var(--dark-red-hover);
 }
 
-@media only screen and (max-width: 680px) {
-  .address {
-    margin: 0 !important;
-  }
-  .form-row {
+@media only screen and (max-width: 768px) {
+  #contact {
     flex-direction: column;
-  }
-
-  .form-group input {
-    height: 38px;
-  }
-}
-
-@media only screen and (max-height: 720px) {
-  .contact-intro-container {
-    margin-top: 3rem;
-  }
-  .mail p {
-    margin: 0 !important;
   }
 }

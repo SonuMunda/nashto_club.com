@@ -1,7 +1,7 @@
 const BestDishesList = [
 {
     id:"masala-dosa",
-    dishName:"Masala dosh",
+    dishName:"Masala dosa",
     img:"./images/masala-dosa.jpg"
 },
 {

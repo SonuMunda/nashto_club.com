@@ -8,10 +8,11 @@
 }
 
 .services-card {
+  height: inherit;
   padding: 1rem;
   transition: all 0.4s ease-in-out;
   background-color: #ffffff;
-  border-radius: 4px;
+  border-radius: 24px;
 }
 
 .service-title h3 {
@@ -24,4 +25,5 @@
   display: block;
   margin: auto;
   width: 86%;
+  border-radius: 18px;
 }

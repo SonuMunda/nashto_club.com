@@ -6,7 +6,7 @@ const CrewMemberCard = (props) => {
       {props.crewList.map((crew) => (
         <div className="crew-card center" key={crew.id} id={crew.id}>
           <div className="crew-image">
-            <img src={crew.image} className="rounded" alt={crew.name} />
+            <img src={crew.image} className="image" alt={crew.name} />
           </div>
           <div className="crew-name">
             <h4 className="pt-3 text-uppercase">{crew.name}</h4>

@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import "./style/OrderingForm.css";
 
-function OrderingForm({ orderDetails }) {
+function OrderingForm({
+  orderDetails,
+  isOrderFormActive,
+  setIsOrderFormActive,
+}) {
   useEffect(() => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -40,23 +44,28 @@ function OrderingForm({ orderDetails }) {
       address: "",
     });
 
-    document.getElementById("order-form").style.scale = "0";
+    setIsOrderFormActive(false);
 
     alert("Ordering Nashto is successfull.Thankyou for Visiting! ");
   };
   return (
-    <div className="order-form center" id="order-form">
+    <section
+      className={`order-form center ${
+        isOrderFormActive ? "order-form-active" : ""
+      }`}
+      id="order-form"
+    >
       <div className="order-form-container flex-column center">
         <div
           className="close-btn"
           onClick={() => {
-            document.getElementById("order-form").style.scale = "0";
+            setIsOrderFormActive(false);
           }}
         >
           <FaTimes />
         </div>
         <div className="form-title">
-          <h4 className="p-4 text-light fw-bold text-uppercase">Nasto Order</h4>
+          <h4 className="p-4 fw-bold">Nasto Order</h4>
         </div>
         <form onSubmit={handleFormSubmit} id="ordering-form">
           <div className="form-group">
@@ -64,6 +73,7 @@ function OrderingForm({ orderDetails }) {
             <input
               type="text"
               name="firstName"
+              className="form-input border"
               value={formData.firstName}
               pattern="[A-Za-z\s]+"
               minLength={4}
@@ -77,6 +87,7 @@ function OrderingForm({ orderDetails }) {
             <input
               type="text"
               name="lastName"
+              className="form-input border"
               value={formData.lastName}
               pattern="[A-Za-z\s]+"
               minLength={4}
@@ -90,6 +101,7 @@ function OrderingForm({ orderDetails }) {
             <input
               type="tel"
               name="phone"
+              className="form-input border"
               value={formData.phone}
               pattern="[0-9]{10}"
               minLength={10}
@@ -103,6 +115,7 @@ function OrderingForm({ orderDetails }) {
             <input
               type="email"
               name="email"
+              className="form-input border"
               value={formData.email}
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               required
@@ -114,6 +127,7 @@ function OrderingForm({ orderDetails }) {
             <input
               type="text"
               name="address"
+              className="form-input border"
               value={formData.address}
               minLength={4}
               maxLength={50}
@@ -127,7 +141,7 @@ function OrderingForm({ orderDetails }) {
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

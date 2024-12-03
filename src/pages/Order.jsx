@@ -6,20 +6,30 @@ import BrunchMenuList from "../assets/api/BrunchMenuList";
 import LunchMenuList from "../assets/api/LunchMenuList";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
 import OrderingForm from "../components/OrderingForm";
-import { FaShoppingCart, FaTimes } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaArrowRight,
+  FaAngleUp,
+  FaAngleDown,
+  FaTrashAlt,
+  FaTimes,
+} from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Order = () => {
   const currentTime = new Date();
   const [cart, setCart] = useState([]);
   const [orderDetails, setOrderDetails] = useState(null);
-  const [isCartOpen, setIsCartOpen] = useState(false); // Added cart visibility state
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isOrderFormActive, setIsOrderFormActive] = useState(false);
 
   const addToCart = (item) => {
-    // Check if the item already exists in the cart
     const isItemInCart = cart.some((cartItem) => cartItem.id === item.id);
 
     if (!isItemInCart) {
       setCart((prevCart) => [...prevCart, { ...item, quantity: 1 }]);
+      toast.success("Item added");
     }
   };
   const removeFromCart = (itemId) => {
@@ -64,21 +74,25 @@ const Order = () => {
     return total;
   };
 
+  //brunch ordering time
   const brunchStartTime = new Date();
-  brunchStartTime.setHours(9, 0, 0); // Set brunch start time to 09:00AM
+  brunchStartTime.setHours(9, 0, 0);
   const brunchEndTime = new Date();
-  brunchEndTime.setHours(10, 30, 0); // Set brunch end time to 10:30AM
+  brunchEndTime.setHours(10, 30, 0);
 
+  //lunch ordering time
   const lunchStartTime = new Date();
-  lunchStartTime.setHours(11, 0, 0); // Set lunch start time to 11:00AM
+  lunchStartTime.setHours(11, 0, 0);
   const lunchEndTime = new Date();
-  lunchEndTime.setHours(13, 0, 0); // Set lunch end time to 01:00PM
+  lunchEndTime.setHours(13, 0, 0);
 
+  //dinner ordering time
   const dinnerStartTime = new Date();
-  dinnerStartTime.setHours(17, 0, 0); // Set dinner start time to 05:00PM
+  dinnerStartTime.setHours(17, 0, 0);
   const dinnerEndTime = new Date();
-  dinnerEndTime.setHours(20, 30, 0); // Set dinner end time to 07:30PM
+  dinnerEndTime.setHours(24, 30, 0);
 
+  //time checks
   const isBrunchTime =
     currentTime >= brunchStartTime && currentTime <= brunchEndTime;
   const isLunchTime =
@@ -108,121 +122,166 @@ const Order = () => {
 
     setOrderDetails(orderDetails);
 
-    document.getElementById("order-form").style.scale = "1";
+    setIsOrderFormActive(true);
   };
 
   const MenuSection = ({ title, menuItems }) => (
-    <div className="order-section">
-      <div className="order-menu-list my-3">
-        <h3 className="title p-3">{title}</h3>
-        {menuItems.map((item) => {
-          const { id, dishImg, dishName, dishPrice, abtDish } = item;
-          return (
-            <div className="order-list-item py-2 px-3" key={id}>
-              <div className="order-row">
-                <div className="item-img">
-                  <img src={dishImg} alt={dishName} />
+    <section className="order-section center">
+      <ToastContainer />
+      <div className="order-container container-fluid d-flex">
+        <div className="order-menu-list">
+          <h3 className="title p-3">{title} Menu</h3>
+          <div className="order-items-cards p-4">
+            {menuItems.map((item) => {
+              const { id, dishImg, dishName, dishPrice, abtDish } = item;
+              return (
+                <div className="item-card p-4" key={id}>
+                  <div className="item-img">
+                    <img src={dishImg} alt={dishName} />
+                  </div>
+                  <div className="item-details">
+                    <div className="item-name">
+                      <h5 className="py-3 fw-bold">{dishName}</h5>
+                    </div>
+                    {/* <div className="item-detail">
+                      <p className="text-secondary">{abtDish}</p>
+                    </div> */}
+                    <div className="space-between">
+                      <div className="item-price center gap-2">
+                        <p className="text-secondary">Price</p>
+                        <p className="text-success fw-bold fs-4">
+                          &#8377; {dishPrice}
+                        </p>
+                      </div>
+                      <div className="item-btn my-2">
+                        <button
+                          onClick={() => addToCart(item)}
+                          className="add-to-cart-btn"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="item-details">
-                  <div className="item-name">
-                    <h5 className="pb-2">{dishName}</h5>
-                  </div>
-                  <div className="item-detail">
-                    <p className="text-secondary">{abtDish}</p>
-                  </div>
-                  <div className="item-price">
-                    <p className="text-secondary">&#8377; {dishPrice}</p>
-                  </div>
-                  <div className="item-btn my-2">
-                    <button onClick={() => addToCart(item)}>Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div
-        className="cart-icon d-flex align-items center"
-        onClick={() => {
-          setIsCartOpen(true);
-        }}
-      >
-        <FaShoppingCart />
-        {cartItemCount > 0 && (
-          <div className="cart-count">{cartItemCount}</div>
-        )}
-      </div>
-
-      <div className={isCartOpen ? "cart cart-active" : "cart"}>
+              );
+            })}
+          </div>
+        </div>
         <div
-          className="close-cart-btn center"
+          className="cart-icon px-2"
           onClick={() => {
-            setIsCartOpen(false);
+            setIsCartOpen(true);
           }}
         >
-          <FaTimes />
+          <div className="icon fs-4 text-white">
+            <FaShoppingCart />
+          </div>
+          {/* {cartItemCount > 0 && (
+            <div className="cart-count">{cartItemCount}</div>
+          )} */}
         </div>
 
-        <h4 className="title p-3 m-3">Nashto Cart</h4>
-        {cart.length > 0 ? (
-          <div className="cart-item">
-            <ul className="p-2 my-2">
-              {cart.map((item) => (
-                <li key={item.id} className="m-2">
-                  <div className="cart-dish-name">{item.dishName}</div>
-                  <div className="cart-dish-price">
-                    <p>&#8377; {item.dishPrice} </p>
-                  </div>
-                  <div className="cart-row">
-                    <div className="cart-quantity my-2">
-                      <button
-                        className="qty-btn"
-                        id="inc-btn"
-                        onClick={() => increaseQuantity(item.id)}
-                      >
-                        +
-                      </button>
-                      <span className="px-3 py-2  mx-2">{item.quantity}</span>
-                      <button
-                        className="qty-btn"
-                        id="dec-btn"
-                        onClick={() => decreaseQuantity(item.id)}
-                      >
-                        -
-                      </button>
-                    </div>
-                    <div className="cart-btn">
-                      <button onClick={() => removeFromCart(item.id)}>
-                        Remove
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="cart-row">
-              <div className="total-price">
-                <h6 className="mx-3">
-                  Total Price: &#8377;{calculateTotalPrice()}
-                </h6>
-              </div>
+        <div className={`cart ${isCartOpen ? "cart-open" : "cart-close"} `}>
+          <div
+            className="close-cart-btn py-2 px-3"
+            onClick={() => {
+              setIsCartOpen(false);
+            }}
+          >
+            <FaTimes />
+          </div>
 
-              <div className="order-btn">
-                <button type="button" onClick={handlePlaceOrder}>
-                  Place Order
-                </button>
+          <h4 className="cart-title text-white">Nashto Cart</h4>
+
+          {cart.length > 0 ? (
+            <div className="cart-item">
+              <ul className="cart-list p-2 my-2">
+                {cart.map((item) => (
+                  <li
+                    key={item.id}
+                    className="cart-list-item mb-2 rounded px-2"
+                  >
+                    <div className="item-details space-between">
+                      <div className="center">
+                        <div className="cart-item-image">
+                          <img src={item.dishImg} alt={item.dishName} />
+                        </div>
+
+                        <div className="veritcal-center flex-column">
+                          <div className="cart-dish-name text-center fs-6 text-white">
+                            {item.dishName}
+                          </div>
+
+                          <div className="cart-dish-price fw-bold text-white">
+                            <p>&#8377; {item.dishPrice} </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="center gap-2 me-2">
+                        <div className="cart-quantity center flex-column m-2 text-white">
+                          <button
+                            className="qty-btn text-white"
+                            id="inc-btn"
+                            onClick={() => increaseQuantity(item.id)}
+                          >
+                            <FaAngleUp />
+                          </button>
+                          <span className="quantity-count">
+                            {item.quantity}
+                          </span>
+                          <button
+                            className="qty-btn text-white"
+                            id="dec-btn"
+                            onClick={() => decreaseQuantity(item.id)}
+                          >
+                            <FaAngleDown />
+                          </button>
+                        </div>
+
+                        <div className="cart-btn">
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="remove-item-btn text-white fs-4"
+                          >
+                            <FaTrashAlt />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="cart-buy-option">
+                <div className="total-price">
+                  <p className="text-center p-2 text-white fs-5 border-bottom">
+                    Total Price: &#8377;{calculateTotalPrice()}
+                  </p>
+                </div>
+
+                <div className="order-btn">
+                  <button
+                    type="button"
+                    onClick={handlePlaceOrder}
+                    className="p-3 bg-white fw-bold"
+                    id="order-btn"
+                  >
+                    Place Order
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="cart-item">
-            <p>Your cart is empty.</p>
-          </div>
-        )}
+          ) : (
+            <div className="cart-item">
+              <p className="ms-4 mb-2 py-4 fs-5 text-white">
+                Your cart is empty.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 
   return (
@@ -230,6 +289,8 @@ const Order = () => {
       <OrderingForm
         orderDetails={orderDetails}
         handleSubmit={setOrderDetails}
+        isOrderFormActive={isOrderFormActive}
+        setIsOrderFormActive={setIsOrderFormActive}
       />
 
       {isBrunchTime && <MenuSection title="Brunch" menuItems={brunchMenu} />}
@@ -243,7 +304,11 @@ const Order = () => {
           </h1>
           <p className="py-2  fs-5 text-center">
             Please check the ordering timings
-            <Link to="/timings" className="ms-1" style={{ color: "var(--materialRed)" }}>
+            <Link
+              to="/timings"
+              className="ms-1"
+              style={{ color: "var(primary-dark-red)" }}
+            >
               click here.
             </Link>
           </p>

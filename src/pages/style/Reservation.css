@@ -1,21 +1,21 @@
 .reservation-wrapper {
-  top: 0;
-  left: 0;
+ top: 0;
+ left: 0;
   position: fixed;
   height: 100vh;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scale: 0;
+  display: none;
   transition: all 0.4s ease-in-out;
   background: var(--background-overlay);
-  backdrop-filter: blur(10px);
-  z-index: 1;
+  backdrop-filter: blur(4px);
+  z-index: 4;
 }
 
 .reservation-form-widget {
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: fit-content;
   width: 480px;
   color: white;
@@ -57,7 +57,7 @@
   border-radius: 0 0 10px 0;
   cursor: pointer;
   color: var(--text-white);
-  background-color: var(--primary-dark-red)
+  background-color: var(--primary-dark-red);
 }
 
 .res-form-group {
@@ -72,7 +72,6 @@
 .res-form-group label {
   color: var(--text-gray-md);
 }
-
 
 /* .res-form-group input:invalid {
   background-color: #ffe1e0;
@@ -106,9 +105,5 @@
 @media only screen and (max-width: 480px) {
   .reservation-form-widget {
     width: 95%;
-  }
-  .res-form-group input,
-  .res-form-group select {
-    width: 196px;
   }
 }

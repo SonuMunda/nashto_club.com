@@ -4,24 +4,33 @@
   position: relative;
 }
 
-
+#menu-intro::before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.121) url("https://images.pexels.com/photos/8100515/pexels-photo-8100515.jpeg?auto=compress&cs=tinysrgb&w=600") center center/cover no-repeat;
+  background-blend-mode: darken;
+}
 
 .menu-intro-container {
-  border: 4px dashed var(--materialRed);
   padding: 2rem;
+  backdrop-filter: blur(24px);
+  background-color: rgba(0, 0, 0, 0.744);
 }
 
 .intro-heading h3 {
   font-size: 4rem;
   font-family: "PlayBall", cursive;
-  color: var(--materialRed);
+  color: var(--accent-gold);
 }
 
 .intro-line {
-  font-size: large;
+  font-size: 1.4rem;
   color: #ffff;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
+  margin-top: 1rem;
 }
 
 .menu-row {
@@ -38,6 +47,7 @@
   display: block;
   margin: auto;
   width: 80%;
+  filter: saturate(2);
 }
 
 .menu-col .col-img {
@@ -66,9 +76,3 @@
   }
 }
 
-@media only screen and (max-width: 680px) {
-  .intro-heading h3 {
-    font-size: 2rem;
-    padding: 8px;
-  }
-}

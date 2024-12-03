@@ -19,7 +19,7 @@ const Reservation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Submit the form or perform further actions
+    
     toast.success(
       "Thank you for booking table we will send you datails of your booking.Have a Happy Meal!",
       {
@@ -28,7 +28,6 @@ const Reservation = () => {
     );
     console.log(formData);
 
-    // Reset form data and errors
     setFormData({
       name: "",
       email: "",
@@ -39,7 +38,7 @@ const Reservation = () => {
   };
 
   const CloseWidget = () => {
-    document.getElementById("res-wrapper").style.scale = "0";
+    document.getElementById("res-wrapper").style.display = "none";
   };
 
   return (

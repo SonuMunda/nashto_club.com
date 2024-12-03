@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./style/App.css";
-import openWidget from "./assets/api/openWidget";
+import openWidget from "./helpers/openWidget";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Timings from "./pages/Timings";
@@ -12,7 +12,6 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 import Reservation from "./pages/Reservations";
-import Loader from "/images/favicon.png";
 
 function App() {
   return (
