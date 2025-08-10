@@ -55,7 +55,7 @@ const Home = (props) => {
               </div>
             </div>
             <div className="right">
-              <img src="./images/hero-image.png" />
+              <img src="/images/hero-image.png" />
             </div>
           </div>
         </div>
