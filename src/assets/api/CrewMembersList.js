@@ -17,6 +17,12 @@ const CrewMembersList = [
     name: "Nilesh Kumar",
     post: "Kitchen Manager",
   },
+  {
+    id: "crew-4",
+    image: "./images/crew-member-4.jpg",
+    name: "Sam Babbu",
+    post: "Junior Chef",
+  },
 ];
 
 export default CrewMembersList;

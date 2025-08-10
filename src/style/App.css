@@ -1,38 +1,13 @@
-:root {
-  --primary-dark-red: #8b0000;
-  --dark-red-hover: #a00000;
-  --secondary-wheat: #f5deb3;
-  --accent-gold: #ffd700;
-  --background-ghost-white: #f8f8ff;
-  --text-black: #000000;
-  --text-gray-md: #3b3b3b;
-  --text-gray: #808080;
-  --text-white: #ffffff;
-  --background-overlay: rgba(0, 0, 0, 0.6);
-  --form-bg: #ffffff;
-  --btn-bg: #8B0000;
-  --btn-hover-bg: #FFD700;
-  --btn-hover-text: #000000;
-  --text-color: #333333;
-  --input-bg: #f8f8f8;
-  --input-focus-border: #FFD700;
+
+@import "tailwindcss";
+
+body {
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html{
-  font-size: 86%;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  scroll-behavior: smooth;
-  background-color: var(--background-ghost-white);
-  color: var(--text-dark);
-  overflow-x: hidden;
-  /* font-family: Arial, sans-serif; */
+.cursive-text {
+  font-family: "Merienda", cursive;
 }
 
 /* Hide the default scroll bar */
@@ -58,16 +33,6 @@ body {
   background: var(--dark-red-hover);
 } */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-nav,
-p,
-ul {
-  margin: 0 0 !important;
-}
 
 .spinner-container {
   display: flex;

@@ -1,11 +1,11 @@
 import React from "react";
 import { MdCurrencyRupee } from "react-icons/md";
 
-const StartersListCards = (props) => {
+const MenuListCard = (props) => {
   return (
     <div className="starters-list space-y-6">
-      {props.starterList.map((starter) => {
-        const { id, dishImg, dishName, dishPrice, abtDish } = starter;
+      {props.menuList.map((item) => {
+        const { id, dishImg, dishName, dishPrice, abtDish } = item;
         return (
           <div
             className="starters-card list-card flex items-center gap-6"
@@ -36,4 +36,4 @@ const StartersListCards = (props) => {
   );
 };
 
-export default StartersListCards;
+export default MenuListCard;

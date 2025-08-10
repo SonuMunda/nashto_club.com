@@ -1,7 +1,7 @@
 {
   "name": "nashto-club",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,19 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "connect-history-api-fallback": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^4.12.0",
     "react-router-dom": "^6.8.0",
     "react-spinners": "^0.13.8",
-    "react-toastify": "^10.0.6",
+    "tailwindcss": "^4.1.11",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
-    "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^4.0.0"
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^7.1.1"
   }
 }

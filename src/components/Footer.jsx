@@ -1,148 +1,101 @@
 import React from "react";
-import "./style/Footer.css";
 import { Link } from "react-router-dom";
 import logo from "../assets/favicon.png";
+import {
+  MdOutlineEmail,
+  MdOutlineLocationOn,
+  MdOutlinePhone,
+  MdOutlineLanguage,
+} from "react-icons/md";
+
+const contactInfo = [
+  {
+    Icon: MdOutlineLocationOn,
+    text: "Near Civil Hospital, Kharar, Mohali",
+  },
+  {
+    Icon: MdOutlineEmail,
+    text: "nashtoclub@email.com",
+  },
+  {
+    Icon: MdOutlinePhone,
+    text: "+91 80808-08080",
+  },
+  {
+    Icon: MdOutlineLanguage,
+    text: "www.nashtoclub.netlify.app",
+  },
+];
 
 const Footer = () => {
   return (
-    <footer className="center flex-column">
-      <div className="footer-container">
-        <div className="f-row">
-          <div className="f-cols d-flex flex-column gap-1">
-            <div className="footer-brand">
-              <Link to="/" className="text-decoration-none vertical-center">
-                <img
-                  src={logo}
-                  alt="plate"
-                  style={{ height: "32px" }}
-                  className="mx-1"
-                />
-                <h4 style={{ color: "var(--text-black)" }} className=" fw-bold">
-                  nashtoclub
-                </h4>
-              </Link>
-            </div>
-
-            <p className="mt-4">
-              Our main moto is to serve you tasty meals. Visit our place and
+    <footer className="bg-neutral-950 border-t border-neutral-800">
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="flex items-center gap-2">
+              <img src={logo} alt="plate" className="h-8" />
+              <h4 className="font-bold cursive-text text-orange-500 text-xl">
+                nashtoclub
+              </h4>
+            </Link>
+            <p className="mt-4 text-neutral-200  ">
+              Our main motto is to serve you tasty meals. Visit our place and
               enjoy food.
             </p>
+          </div>
 
-            <ul className="media-list">
-              <li className="list-items">
-                <a href="/" className="media-link">
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-              </li>
-              <li className="list-items">
-                <a href="/" className="media-link">
-                  <i className="fa-brands fa-instagram"></i>
-                </a>
-              </li>
-              <li className="list-items">
-                <a href="/" className="media-link">
-                  <i className="fa-brands fa-twitter"></i>
-                </a>
-              </li>
-              <li className="list-items">
-                <a href="/" className="media-link">
-                  <i className="fa-brands fa-google-plus"></i>
-                </a>
-              </li>
-              <li className="list-items">
-                <a href="/" className="media-link">
-                  <i className="fa-brands fa-whatsapp"></i>
-                </a>
-              </li>
+          {/* Contact */}
+          <div>
+            <h6 className="text-lg font-semibold text-neutral-200 mb-4">
+              Contact Us
+            </h6>
+            <ul className="space-y-3">
+              {contactInfo.map(({ Icon, text }, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-2 text-neutral-200"
+                >
+                  <Icon className="text-orange-500 text-xl" />
+                  <span className="">{text}</span>
+                </li>
+              ))}
             </ul>
           </div>
-          <div className="f-cols" id="contact-col">
-            <div className="contacts center flex-column">
-              <h6 className="f-heading py-1 text-dark mb-2">Contact us</h6>
-              <ul className="contacts-list">
-                <li className="contact-list-items text-dark vertical-center gap-2 my-3">
-                  <i className="fa-solid fa-location-dot fs-4"></i>
-                  <span className="ms-2">
-                    Near Civil Hospital, kharar, Mohali
-                  </span>
+
+          {/* Useful Links */}
+          <div>
+            <h6 className="text-lg font-semibold text-neutral-200 mb-4">
+              Useful Links
+            </h6>
+            <ul className="space-y-2">
+              {[
+                { name: "Home", to: "/" },
+                { name: "Timings", to: "/timings" },
+                { name: "Menu", to: "/menu" },
+                { name: "Our Story", to: "/story" },
+                { name: "Order Online", to: "/order" },
+                { name: "Contact", to: "/contact" },
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.to}
+                    className=" text-neutral-200 hover:text-orange-500 transition"
+                  >
+                    {link.name}
+                  </Link>
                 </li>
-                <li className="contact-list-items text-dark vertical-center gap-2 my-3">
-                  <i className="fa-sharp fa-solid fa-envelope fs-4 "></i>
-                  <span className="ms-2">nashtoclub@email.com</span>
-                </li>
-                <li className="contact-list-items text-dark vertical-center gap-2 my-3">
-                  <i className="fa-sharp fa-solid fa-headset fs-4 "></i>
-                  <span className="ms-2"> nashtoclub@care.com</span>
-                </li>
-                <li className="contact-list-items text-dark vertical-center gap-2 my-3">
-                  <i className="fa-sharp fa-solid fa-phone fs-4 "></i> +91
-                  80808-08080
-                </li>
-                <li className="contact-list-item text-dark vertical-center gap-2 my-3">
-                  <i className="fa-sharp fa-solid fa-globe fs-4 "></i>
-                  <span className="ms-2">www.nashtoclub.com</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="f-cols center flex-column" id="usefull-links-col ">
-            <h6 className="f-heading py-1 text-dark mb-2">Usefull links</h6>
-            <ul className="usefull-links">
-              <li className="links-items my-2">
-                <Link
-                  to="/"
-                  className="usefull-links text-decoration-none text-dark"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="links-items my-2">
-                <Link
-                  to="/timings"
-                  className="usefull-links text-decoration-none text-dark"
-                >
-                  Timings
-                </Link>
-              </li>
-              <li className="links-items my-2">
-                <Link
-                  to="/menu"
-                  className="usefull-links text-decoration-none text-dark"
-                >
-                  Menu
-                </Link>
-              </li>
-              <li className="links-items my-2">
-                <Link
-                  to="/story"
-                  className="usefull-links text-decoration-none text-dark"
-                >
-                  Our Story
-                </Link>
-              </li>
-              <li className="links-items my-2">
-                <Link
-                  to="/order"
-                  className="usefull-links text-decoration-none text-dark"
-                >
-                  Order Online
-                </Link>
-              </li>
-              <li className="links-items my-2">
-                <Link
-                  to="/contact"
-                  className="usefull-links text-decoration-none text-dark"
-                >
-                  Contact
-                </Link>
-              </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
-      <div className="f-row-2 border-top bg-white w-100">
-        <p className="text-center text-dark m-4">
-          &copy; All copyrights are researved | Nashto Club | 2023
+
+      {/* Bottom Footer */}
+      <div className="bg-neutral-950 py-4">
+        <p className="text-center text-neutral-300 ">
+          &copy; {new Date().getFullYear()} NashtoClub — Developed by Sonu Munda
         </p>
       </div>
     </footer>

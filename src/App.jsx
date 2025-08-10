@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+// App.js
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./style/App.css";
-import openWidget from "./helpers/openWidget";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Timings from "./pages/Timings";
@@ -14,11 +14,18 @@ import ErrorPage from "./pages/ErrorPage";
 import Reservation from "./pages/Reservations";
 
 function App() {
+  const [openWidget, setOpenWidget] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
-      <Header openWidget={openWidget} />
+      <Header openWidget={setOpenWidget} />
       <Routes>
-        <Route path="/" element={<Home openWidget={openWidget} />} />
+        <Route path="/" element={<Home openWidget={setOpenWidget} />} />
         <Route path="/timings" element={<Timings />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/story" element={<Story />} />
@@ -26,7 +33,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      <Reservation />
+      <Reservation isOpen={openWidget} setOpen={setOpenWidget} />
       <Footer />
     </>
   );

@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./style/Order.css";
 import sorryImg from "/images/sorry.png";
 import BrunchMenuList from "../assets/api/BrunchMenuList";
 import LunchMenuList from "../assets/api/LunchMenuList";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
 import OrderingForm from "../components/OrderingForm";
 import {
-  FaShoppingCart,
-  FaArrowRight,
-  FaAngleUp,
-  FaAngleDown,
-  FaTrashAlt,
-  FaTimes,
-} from "react-icons/fa";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+  MdAddCircle,
+  MdCancel,
+  MdClear,
+  MdCurrencyRupee,
+  MdRemoveCircle,
+  MdShoppingCart,
+} from "react-icons/md";
 
 const Order = () => {
   const currentTime = new Date();
@@ -84,11 +81,11 @@ const Order = () => {
   const lunchStartTime = new Date();
   lunchStartTime.setHours(11, 0, 0);
   const lunchEndTime = new Date();
-  lunchEndTime.setHours(13, 0, 0);
+  lunchEndTime.setHours(12, 0, 0);
 
   //dinner ordering time
   const dinnerStartTime = new Date();
-  dinnerStartTime.setHours(17, 0, 0);
+  dinnerStartTime.setHours(14, 0, 0);
   const dinnerEndTime = new Date();
   dinnerEndTime.setHours(21, 30, 0);
 
@@ -126,162 +123,204 @@ const Order = () => {
   };
 
   const MenuSection = ({ title, menuItems }) => (
-    <section className="order-section center">
-      <ToastContainer />
-      <div className="order-container container-fluid d-flex">
-        <div className="order-menu-list">
-          <h3 className="title p-3">{title} Menu</h3>
-          <div className="order-items-cards p-4">
-            {menuItems.map((item) => {
-              const { id, dishImg, dishName, dishPrice, abtDish } = item;
-              return (
-                <div className="item-card p-4" key={id}>
-                  <div className="item-img">
-                    <img src={dishImg} alt={dishName} />
-                  </div>
-                  <div className="item-details">
-                    <div className="item-name">
-                      <h5 className="py-3 fw-bold">{dishName}</h5>
-                    </div>
-                    {/* <div className="item-detail">
-                      <p className="text-secondary">{abtDish}</p>
-                    </div> */}
-                    <div className="space-between">
-                      <div className="item-price center gap-2">
-                        <p className="text-secondary">Price</p>
-                        <p className="text-success fw-bold fs-4">
-                          &#8377; {dishPrice}
-                        </p>
+    <main>
+      <section className="order-section center">
+        <div className="container max-w-7xl mx-auto px-4 py-24">
+          <div className="order-content grid grid-cols-1 lg:grid-cols-3 justify-between gap-10">
+            <div className="order-menu-list lg:col-span-2">
+              <h3 className="heading pb-6 text-center cursive-text text-orange-500 font-bold text-3xl sm:text-4xl">
+                {title} Menu
+              </h3>
+              <div className="order-items-cards grid sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+                {menuItems.map((item) => {
+                  const { id, dishImg, dishName, dishPrice, abtDish } = item;
+                  return (
+                    <div
+                      key={id}
+                      className="bg-white flex flex-col h-full overflow-hidden"
+                    >
+                      {/* Image */}
+                      <div className="relative">
+                        <img
+                          src={dishImg}
+                          alt={dishName}
+                          className="w-full h-48 rounded-xl object-cover transform hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                      <div className="item-btn my-2">
+
+                      {/* Content */}
+                      <div className="flex flex-col flex-1 py-4">
+                        {/* Name */}
+                        <h5 className="text-lg font-bold text-orange-500 mb-1">
+                          {dishName}
+                        </h5>
+
+                        {/* Description */}
+                        <p className="text-neutral-700 text-sm flex-1">
+                          {abtDish}
+                        </p>
+
+                        {/* Price */}
+                        <div className="flex items-center justify-between">
+                          <span className="text-neutral-800 font-bold text-sm">
+                            Price
+                          </span>
+                          <span className="flex items-center font-semibold text-neutral-800">
+                            <MdCurrencyRupee className="text-orange-500" />
+                            {dishPrice}
+                          </span>
+                        </div>
+
+                        {/* Add Button */}
                         <button
                           onClick={() => addToCart(item)}
-                          className="add-to-cart-btn"
+                          className="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
                         >
-                          +
+                          Add to Cart
                         </button>
                       </div>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        <div
-          className="cart-icon px-2"
-          onClick={() => {
-            setIsCartOpen(true);
-          }}
-        >
-          <div className="icon fs-4 text-white">
-            <FaShoppingCart />
-          </div>
-          {/* {cartItemCount > 0 && (
-            <div className="cart-count">{cartItemCount}</div>
-          )} */}
-        </div>
+                  );
+                })}
+              </div>
+            </div>
 
-        <div className={`cart ${isCartOpen ? "cart-open" : "cart-close"} `}>
-          <div
-            className="close-cart-btn py-2 px-3"
-            onClick={() => {
-              setIsCartOpen(false);
-            }}
-          >
-            <FaTimes />
-          </div>
+            <div
+              className="cart-icon block lg:hidden fixed bottom-6 right-6 bg-neutral-950 shadow-lg rounded-full p-3 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform duration-200"
+              onClick={() => {
+                setIsCartOpen(true);
+              }}
+            >
+              <div className="icon text-orange-500 relative">
+                <MdShoppingCart size={28} />
+                {cartItemCount > 0 && (
+                  <span className="cart-count absolute -top-2 -right-2 bg-orange-500 text-white w-5 h-5 flex items-center justify-center text-xs font-bold rounded-full shadow-md">
+                    {cartItemCount}
+                  </span>
+                )}
+              </div>
+            </div>
 
-          <h4 className="cart-title text-white">Nashto Cart</h4>
+            <div
+              className={`cart ${
+                isCartOpen ? "block" : "hidden"
+              } fixed top-0 left-0 h-screen bg-neutral-950 w-full max-w-md z-20 overflow-y-auto lg:relative lg:z-1 lg:rounded-xl lg:block`}
+            >
+              {/* Close Button */}
+              <div
+                className="absolute block lg:hidden right-4 top-4 text-white cursor-pointer hover:text-orange-500 transition-colors"
+                onClick={() => setIsCartOpen(false)}
+              >
+                <MdCancel size={24} />
+              </div>
 
-          {cart.length > 0 ? (
-            <div className="cart-item">
-              <ul className="cart-list p-2 my-2">
-                {cart.map((item) => (
-                  <li
-                    key={item.id}
-                    className="cart-list-item mb-2 rounded px-2"
-                  >
-                    <div className="item-details space-between">
-                      <div className="center">
-                        <div className="cart-item-image">
-                          <img src={item.dishImg} alt={item.dishName} />
+              {/* Title */}
+              <h4 className="text-xl p-4 cursive-text font-bold text-orange-500 text-center">
+                Nashto Cart
+              </h4>
+
+              {cart.length > 0 ? (
+                <div className="flex flex-col">
+                  {/* Cart Items */}
+                  <ul className="flex-1 overflow-y-auto px-4">
+                    {cart.map((item) => (
+                      <li
+                        key={item.id}
+                        className="grid grid-cols-7 gap-4 py-4 px-2"
+                      >
+                        {/* Item Info */}
+                        <div className="flex items-center col-span-4 gap-3">
+                          <img
+                            src={item.dishImg}
+                            alt={item.dishName}
+                            className="w-14 h-14 rounded-lg object-cover"
+                          />
+                          <div>
+                            <p className="text-white font-semibold">
+                              {item.dishName}
+                            </p>
+                            <p className="text-orange-400 font-bold">
+                              ₹{item.dishPrice}
+                            </p>
+                          </div>
                         </div>
 
-                        <div className="veritcal-center flex-column">
-                          <div className="cart-dish-name text-center fs-6 text-white">
-                            {item.dishName}
-                          </div>
-
-                          <div className="cart-dish-price fw-bold text-white">
-                            <p>&#8377; {item.dishPrice} </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="center gap-2 me-2">
-                        <div className="cart-quantity center flex-column m-2 text-white">
+                        {/* Actions */}
+                        <div className="flex items-center mx-auto gap-2 col-span-2  p-1  rounded-full">
                           <button
-                            className="qty-btn text-white"
-                            id="inc-btn"
+                            className="text-white hover:text-orange-500"
                             onClick={() => increaseQuantity(item.id)}
                           >
-                            <FaAngleUp />
+                            <MdAddCircle size={24} />
                           </button>
-                          <span className="quantity-count">
+                          <span className="text-white font-bold">
                             {item.quantity}
                           </span>
                           <button
-                            className="qty-btn text-white"
-                            id="dec-btn"
+                            className="text-white hover:text-orange-500"
                             onClick={() => decreaseQuantity(item.id)}
                           >
-                            <FaAngleDown />
+                            <MdRemoveCircle size={24} />
                           </button>
                         </div>
 
-                        <div className="cart-btn">
-                          <button
-                            onClick={() => removeFromCart(item.id)}
-                            className="remove-item-btn text-white fs-4"
+                        {/* Remove */}
+                        <button
+                          onClick={() => removeFromCart(item.id)}
+                          className="text-white hover:text-orange-600 transition-colors"
+                        >
+                          <MdCancel size={24} />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Footer */}
+                  <div className="p-4 border-t border-neutral-700 space-y-4">
+                    <div className="price-breakout pb-4 border-b border-neutral-700">
+                      {cart.map((item, index) => {
+                        return (
+                          <div
+                            key={index}
+                            className="flex justify-between text-white"
                           >
-                            <FaTrashAlt />
-                          </button>
-                        </div>
-                      </div>
+                            <p>{item.dishName}</p>
+                            <p className="flex items-center gap-2">
+                              <span>{item.dishPrice}</span> <MdClear />
+                              <span>{item.quantity}</span>
+                            </p>
+                          </div>
+                        );
+                      })}
                     </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="cart-buy-option">
-                <div className="total-price">
-                  <p className="text-center p-2 text-white fs-5 border-bottom">
-                    Total Price: &#8377;{calculateTotalPrice()}
+                    <div className="text-lg text-white font-semibold flex justify-between mb-3">
+                      <span>Total:</span>
+                      <p className="flex items-center">
+                        <MdCurrencyRupee />
+                        {calculateTotalPrice()}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handlePlaceOrder}
+                      className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg transition-colors"
+                    >
+                      Place Order
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-4">
+                  <p className="text-orange-500 text-center">
+                    Your cart is empty.
                   </p>
                 </div>
-
-                <div className="order-btn">
-                  <button
-                    type="button"
-                    onClick={handlePlaceOrder}
-                    className="p-3 bg-white fw-bold"
-                    id="order-btn"
-                  >
-                    Place Order
-                  </button>
-                </div>
-              </div>
+              )}
             </div>
-          ) : (
-            <div className="cart-item">
-              <p className="ms-4 mb-2 py-4 fs-5 text-white">
-                Your cart is empty.
-              </p>
-            </div>
-          )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 
   return (

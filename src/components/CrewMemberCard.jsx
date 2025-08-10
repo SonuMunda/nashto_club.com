@@ -1,18 +1,23 @@
 import React from "react";
-import "./style/CrewCard.css"
 const CrewMemberCard = (props) => {
   return (
-    <div className="crew-card-row center py-4">
+    <div className="crews grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
       {props.crewList.map((crew) => (
-        <div className="crew-card center" key={crew.id} id={crew.id}>
+        <div className="card" key={crew.id} id={crew.id}>
           <div className="crew-image">
-            <img src={crew.image} className="image" alt={crew.name} />
+            <img
+              src={crew.image}
+              className="crew image rounded w-full"
+              alt={crew.name}
+            />
           </div>
           <div className="crew-name">
-            <h4 className="pt-3 text-uppercase">{crew.name}</h4>
+            <h4 className="pt-3 uppercase  text-orange-500 font-bold text-2xl">
+              {crew.name}
+            </h4>
           </div>
           <div className="crew-post">
-            <p>{crew.post}</p>
+            <p className="text-neutral-800 ">{crew.post}</p>
           </div>
         </div>
       ))}

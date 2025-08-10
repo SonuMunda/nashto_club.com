@@ -1,127 +1,77 @@
 import React from "react";
-import StartersListCards from "../components/StartersListCards";
+
 import StartersListData from "../assets/api/StartersListData";
-import "./style/Menu.css";
 import startersImg from "/images/starters-garlic-soup.jpg";
 import brunchImg from "/images/Brunch-Menu.png";
 import BrunchMenuList from "../assets/api/BrunchMenuList";
-import BrunchMenuCard from "../components/BrunchMenuCard";
 import lunchImg from "/images/Lunch-Menu.png";
-import LunchMenuCard from "../components/LunchMenuCard";
 import LunchMenuList from "../assets/api/LunchMenuList";
 import dinnerImg from "/images/Dinner-Menu.png";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
-import DinnerMenuCard from "../components/DinnerMenuCard";
 import CombosList from "../assets/api/CombosList";
 import CombosMenuList from "../components/CombosMenuList";
+import MenuSection from "../components/MenuSection";
 
 const Menu = () => {
   return (
-    <div className="menu-wrapper">
-      <div id="menu-intro" className="center">
-        <div className="menu-intro-container center flex-column">
+    <main>
+      <section
+        id="menu-intro"
+        className="hero min-h-[65vh] bg-neutral-950 flex items-center justify-center"
+      >
+        <div className="container max-w-7xl mx-auto p-4 py-24">
           <div className="intro-heading">
-            <h3 className="text-center">Nashto Menu</h3>
-          </div>
-          <div className="intro-line">
-            <p>See our Delicious Menu Items</p>
-          </div>
-        </div>
-      </div>
-
-      <section id="starters">
-        <div className="starters-container my-4">
-          <div className="starters-heading menu-heading">
-            <h3 className="title">Starters</h3>
-          </div>
-          <div className="starters-row menu-row">
-            <div className="starters-col menu-col">
-              <div className="col-img center">
-                <img src={startersImg} className="img" alt="garlic-soup" />
-              </div>
-            </div>
-            <div className="starters-col menu-col">
-              <StartersListCards starterList={StartersListData} />
-            </div>
+            <h3 className="text-center cursive-text text-orange-500 font-bold text-4xl sm:text-5xl">
+              Nashto Menu
+            </h3>
           </div>
         </div>
       </section>
 
-      <hr />
+      <MenuSection
+        title={"starters"}
+        menuList={StartersListData}
+        sideImage={startersImg}
+        imageLeft={true}
+      />
+      <div className="border-b border-neutral-400"></div>
+      <MenuSection
+        title={"brunch"}
+        menuList={BrunchMenuList}
+        sideImage={brunchImg}
+        imageLeft={false}
+      />
 
-      <section id="brunch">
-        <div className="brunch-container">
-          <div className="brunch-heading menu-heading">
-            <h3 className="title">brunch</h3>
-          </div>
-          <div className="brunch-row menu-row flex-wrap-reverse">
-            <div className="brunch-col menu-col">
-              <BrunchMenuCard brunchList={BrunchMenuList} />
-            </div>
-            <div className="brunch-col menu-col">
-              <div className="col-img center">
-                <img src={brunchImg} className="img" alt="Brunch Plate" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MenuSection
+        title={"lunch"}
+        menuList={LunchMenuList}
+        sideImage={lunchImg}
+        imageLeft={true}
+      />
 
-      <hr />
-
-      <section id="lunch">
-        <div className="lunch-container">
-          <div className="lunch-heading menu-heading">
-            <h3 className="title">lunch</h3>
-          </div>
-          <div className="lunch-row menu-row">
-            <div className="lunch-col menu-col">
-              <div className="col-img center">
-                <img src={lunchImg} className="img" alt="Lunch Menu" />
-              </div>
-            </div>
-            <div className="lunch-col menu-col">
-              <LunchMenuCard lunchList={LunchMenuList} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr />
-
-      <section id="dinner">
-        <div className="dinner-container">
-          <div className="dinner-heading menu-heading">
-            <h3 className="title">dinner</h3>
-          </div>
-          <div className="dinner-row menu-row flex-wrap-reverse">
-            <div className="dinner-col menu-col">
-              <DinnerMenuCard dinnerList={DinnerMenuList} />
-            </div>
-            <div className="dinner-col menu-col">
-              <div className="col-img center">
-                <img src={dinnerImg} className="img" alt="Dinner Plate" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <hr />
+      <MenuSection
+        title={"dinner"}
+        menuList={DinnerMenuList}
+        sideImage={dinnerImg}
+        imageLeft={false}
+      />
 
       <section id="combos">
+        <div className="container max-w-7xl mx-auto p-4 py-24">
+          <div className="combo-contents space-y-10 mx-auto">
+            <div className="combos-heading menu-heading">
+              <h3 className="title capitalize text-center cursive-text text-orange-500 font-bold text-4xl sm:text-5xl">
+                Combos
+              </h3>
+            </div>
 
-        <div className="combos-container pb-4">
-          <div className="combos-heading menu-heading">
-            <h3 className="title">Combos</h3>
-          </div>
-
-          <div className="combos-menu-desc center">
-            <CombosMenuList combosList={CombosList} />
+            <div className="combos-menu-desc">
+              <CombosMenuList combosList={CombosList} />
+            </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 };
 

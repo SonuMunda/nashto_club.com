@@ -1,98 +1,69 @@
 import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { HiBars3 } from "react-icons/hi2";
-import "./style/Header.css";
 import logo from "../assets/favicon.png";
+import { MdMenu } from "react-icons/md";
+
+const navLinks = [
+  { to: "/", label: "Home" },
+  { to: "/timings", label: "Timings" },
+  { to: "/menu", label: "Menu" },
+  { to: "/story", label: "Our Story" },
+  { to: "/order", label: "Order Online" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="space-between">
-      <div className="brand">
-        <NavLink to="/" className="text-decoration-none center">
-          <img src={logo} alt="" style={{ height: "32px" }} className="mx-1" />
-          <h4 style={{ color: "rgb(32, 32, 32)" }} className=" fw-bold">
-            nashtoclub
-          </h4>
-        </NavLink>
-      </div>
-
-      <nav className={isOpen ? "navbar nav-active" : "navbar"}>
-        <div className="nav-container">
-          <ul className="nav-list">
-            <li className="nav-list-items">
-              <NavLink
-                to="/"
-                className="nav-links"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-list-items">
-              <NavLink
-                to="/timings"
-                className="nav-links"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Timings
-              </NavLink>
-            </li>
-            <li className="nav-list-items">
-              <NavLink
-                to="/menu"
-                className="nav-links"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Menu
-              </NavLink>
-            </li>
-            <li className="nav-list-items">
-              <NavLink
-                to="/story"
-                className="nav-links"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Our Story
-              </NavLink>
-            </li>
-            <li className="nav-list-items">
-              <NavLink
-                to="/order"
-                className="nav-links"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Order Online
-              </NavLink>
-            </li>
-            <li className="nav-list-items">
-              <NavLink
-                to="/contact"
-                className="nav-links"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Contact
-              </NavLink>
-            </li>
-          </ul>
+    <header className="header fixed top-0 left-0 w-full bg-neutral-950 text-white z-10">
+      <div className="container relative max-w-7xl mx-auto px-2 sm:px-4 py-2 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <div className="menubar block lg:hidden">
+            <div onClick={() => setIsOpen(!isOpen)}>
+              <MdMenu size={24} />
+            </div>
+          </div>
+          <div className="brand">
+            <NavLink to="/" className="flex items-center gap-2">
+              <img src={logo} alt="nashtoclub" className="h-8 w-8" />
+              <h4 className="cursive-text text-orange-500 text-xl font-bold">
+                <span>nashto</span>
+                <span>club</span>
+              </h4>
+            </NavLink>
+          </div>
         </div>
 
+        <nav
+          className={`navbar ${
+            isOpen ? "block" : "hidden"
+          } p-4 w-full text-left absolute top-full left-0 bg-neutral-950 z-10 lg:relative lg:block lg:p-0 lg:w-fit` }
+        >
+          <ul className="nav-list flex flex-col lg:flex-row lg:gap-6">
+            {navLinks.map((link) => (
+              <li key={link.to} className="nav-list-items">
+                <NavLink
+                  to={link.to}
+                  className="nav-links block p-2  rounded hover:bg-neutral-700"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
         <button
-          className="nav-btn"
+          className="nav-btn bg-orange-600 py-2 px-4 rounded-full text-white"
           onClick={(e) => {
             e.preventDefault();
-            props.openWidget();
+            props.openWidget(true);
           }}
         >
           Book a Table
         </button>
-      </nav>
-
-      <div className="menubar me-2">
-        <div onClick={() => setIsOpen(!isOpen)}>
-          <HiBars3 />
-        </div>
       </div>
     </header>
   );

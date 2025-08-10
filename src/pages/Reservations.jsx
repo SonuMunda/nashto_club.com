@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./style/Reservation.css";
-import { FaTimes } from "react-icons/fa";
-import { toast, ToastContainer } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
+import { MdClose } from "react-icons/md";
 
-const Reservation = () => {
+const Reservation = (props) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +18,6 @@ const Reservation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    
     toast.success(
       "Thank you for booking table we will send you datails of your booking.Have a Happy Meal!",
       {
@@ -37,128 +35,159 @@ const Reservation = () => {
     });
   };
 
-  const CloseWidget = () => {
-    document.getElementById("res-wrapper").style.display = "none";
-  };
-
   return (
-    <section>
-      <ToastContainer />
-      <div className="reservation-wrapper" id="res-wrapper">
-        <div
-          className="reservation-form-widget horizontal-center"
-          id="res-widget"
-        >
-          <div className="close-btn" onClick={CloseWidget}>
-            <FaTimes />
-          </div>
+    <>
+      <Toaster />
+      <section
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50 ${
+          props.isOpen
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-95 pointer-events-none"
+        }`}
+      >
+        <div className="bg-white rounded shadow-2xl w-full max-w-lg relative p-6 animate-fadeIn">
+          {/* Close Button */}
+          <button
+            onClick={() => props.setOpen(false)}
+            className="absolute top-3 right-3 text-gray-500 hover:text-red-500 transition"
+          >
+            <MdClose size={24} />
+          </button>
 
-          <div className="res-form-container">
-            <div className="res-title">
-              <h3 className="py-2">Reservations</h3>
+          {/* Title */}
+          <h3 className="text-2xl font-bold text-orange-600 mb-6 text-center">
+            Reservations
+          </h3>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-4 mx-auto">
+            {/* Name */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="John"
+                value={formData.name}
+                onChange={handleChange}
+                pattern="[A-Za-z\s]+"
+                minLength={3}
+                maxLength={24}
+                required
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-orange-500 outline-none"
+              />
             </div>
 
-            <form onSubmit={handleSubmit} id="res-form">
-              <div className="res-form-group">
-                <label>Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="John"
-                  value={formData.name}
-                  onChange={handleChange}
-                  pattern="[A-Za-z\s]+"
-                  minLength={3}
-                  maxLength={24}
-                  required
-                />
-              </div>
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="john@email.com"
+                onChange={handleChange}
+                value={formData.email}
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                required
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-orange-500 outline-none"
+              />
+            </div>
 
-              <div className="res-form-group">
-                <label>Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="john@email.com"
-                  onChange={handleChange}
-                  value={formData.email}
-                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                  required
-                />
-              </div>
-              <div className="res-form-group">
-                <label>Phone</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  placeholder="9800011198"
-                  onChange={handleChange}
-                  value={formData.phone}
-                  pattern="[0-9]{10}"
-                  maxLength={10}
-                  required
-                />
-              </div>
-              <div className="res-form-group">
-                <label>People</label>
-                <select
-                  name="partySize"
-                  id="party-size"
-                  onChange={handleChange}
-                  value={formData.partySize}
-                  required
-                >
-                  <option value="">Choose Party Size</option>
-                  <option value="1">1 Person</option>
-                  <option value="2">2 People</option>
-                  <option value="3">3 People</option>
-                  <option value="4">4 People</option>
-                  <option value="5">5 People</option>
-                  <option value="6">6 People</option>
-                </select>
-              </div>
-              <div className="res-form-group">
-                <label>Time</label>
-                <select
-                  name="time"
-                  id="time"
-                  onChange={handleChange}
-                  value={formData.time}
-                  required
-                >
-                  <option value="">Choose Timings</option>
-                  <option value="09:00AM">09:00AM</option>
-                  <option value="10:00AM">10:00AM</option>
-                  <option value="11:00AM">11:00AM</option>
-                  <option value="12:00PM">12:00PM</option>
-                  <option value="01:00PM">01:00PM</option>
-                  <option value="02:00PM">02:00PM</option>
-                  <option value="03:00PM">03:00PM</option>
-                  <option value="04:00PM">04:00PM</option>
-                  <option value="05:00PM">05:00PM</option>
-                  <option value="06:00PM">06:00PM</option>
-                  <option value="07:00PM">07:00PM</option>
-                  <option value="08:00PM">08:00PM</option>
-                  <option value="09:00PM">09:00PM</option>
-                </select>
-              </div>
+            {/* Phone */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Phone
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                placeholder="9800011198"
+                onChange={handleChange}
+                value={formData.phone}
+                pattern="[0-9]{10}"
+                maxLength={10}
+                required
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-orange-500 outline-none"
+              />
+            </div>
 
-              <div className="res-btn-container center mt-3">
-                <input
-                  type="submit"
-                  value="Book Table"
-                  name="resbtn"
-                  id="res-btn"
-                />
-              </div>
-            </form>
-          </div>
+            {/* People */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                People
+              </label>
+              <select
+                name="partySize"
+                id="party-size"
+                onChange={handleChange}
+                value={formData.partySize}
+                required
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-orange-500 outline-none"
+              >
+                <option value="">Choose Party Size</option>
+                {[1, 2, 3, 4, 5, 6].map((num) => (
+                  <option key={num} value={num}>
+                    {num} {num === 1 ? "Person" : "People"}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Time */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Time
+              </label>
+              <select
+                name="time"
+                id="time"
+                onChange={handleChange}
+                value={formData.time}
+                required
+                className="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-orange-500 outline-none"
+              >
+                <option value="">Choose Timings</option>
+                {[
+                  "09:00AM",
+                  "10:00AM",
+                  "11:00AM",
+                  "12:00PM",
+                  "01:00PM",
+                  "02:00PM",
+                  "03:00PM",
+                  "04:00PM",
+                  "05:00PM",
+                  "06:00PM",
+                  "07:00PM",
+                  "08:00PM",
+                  "09:00PM",
+                ].map((time) => (
+                  <option key={time} value={time}>
+                    {time}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Button */}
+            <div className="text-center">
+              <input
+                type="submit"
+                value="Book Table"
+                className="bg-orange-500  w-full p-4 hover:bg-orange-600 text-white font-semibold rounded transition duration-300 cursor-pointer"
+              />
+            </div>
+          </form>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
