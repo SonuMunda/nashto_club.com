@@ -1,12 +1,8 @@
 import React from "react";
 
 import StartersListData from "../assets/api/StartersListData";
-import startersImg from "/images/starters-garlic-soup.jpg";
-import brunchImg from "/images/Brunch-Menu.png";
 import BrunchMenuList from "../assets/api/BrunchMenuList";
-import lunchImg from "/images/Lunch-Menu.png";
 import LunchMenuList from "../assets/api/LunchMenuList";
-import dinnerImg from "/images/Dinner-Menu.png";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
 import CombosList from "../assets/api/CombosList";
 import CombosMenuList from "../components/CombosMenuList";
@@ -31,28 +27,28 @@ const Menu = () => {
       <MenuSection
         title={"starters"}
         menuList={StartersListData}
-        sideImage={startersImg}
+        sideImage={"/images/starters-garlic-soup.jpg"}
         imageLeft={true}
       />
       <div className="border-b border-neutral-400"></div>
       <MenuSection
         title={"brunch"}
         menuList={BrunchMenuList}
-        sideImage={brunchImg}
+        sideImage={"/images/Brunch-Menu.png"}
         imageLeft={false}
       />
 
       <MenuSection
         title={"lunch"}
         menuList={LunchMenuList}
-        sideImage={lunchImg}
+        sideImage={"/images/Lunch-Menu.png"}
         imageLeft={true}
       />
 
       <MenuSection
         title={"dinner"}
         menuList={DinnerMenuList}
-        sideImage={dinnerImg}
+        sideImage={"/images/Dinner-Menu.png"}
         imageLeft={false}
       />
 
