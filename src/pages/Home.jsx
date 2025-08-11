@@ -3,7 +3,6 @@ import ServicesList from "../assets/api/ServicesList";
 import ServicesCard from "../components/ServicesCard";
 import BestDishesCard from "../components/BestDishesCard";
 import BestDishesList from "../assets/api/BestDishesList";
-import quoteMan from "/images/quote-man.jpg";
 import { Link } from "react-router-dom";
 const Home = (props) => {
   return (
@@ -174,7 +173,7 @@ const Home = (props) => {
 
             <div className="person-img">
               <img
-                src={quoteMan}
+                src={"/images/man.jpg"}
                 alt="Mr. Amit Chaturvedi"
                 className="rounded-lg"
               />
