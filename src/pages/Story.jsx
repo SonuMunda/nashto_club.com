@@ -1,12 +1,6 @@
 import React from "react";
-import menuIntroImg from "/images/story-menu-intro.jpg";
-import expIntroBg from "/images/experience-intro-bg.jpg";
 import CrewMemberCard from "../components/CrewMemberCard";
 import CrewMembersList from "../assets/api/CrewMembersList";
-import Zomato_Logo from "/images/Zomato_logo.png";
-import Swiggy_Logo from "/images/Swiggy_logo.png";
-import UberEats_Logo from "/images/UberEats_logo.png";
-import Dominos_Logo from "/images/Dominos_logo.png";
 const Story = () => {
   return (
     <main>
@@ -26,7 +20,7 @@ const Story = () => {
             <div className="about-menu-cols">
               <div className="menu-img">
                 <img
-                  src={menuIntroImg}
+                  src={"/images/story-menu-intro.jpg"}
                   className="mx-auto w-full lg:w-auto rounded"
                   alt="celebrating"
                 />
@@ -101,7 +95,7 @@ const Story = () => {
             <div className="experience-col center flex-column">
               <div className="story-img">
                 <img
-                  src={expIntroBg}
+                  src={"/images/experience-intro-bg.jpg"}
                   className="mx-auto w-full lg:w-auto rounded"
                   alt="experience image"
                 />
@@ -149,16 +143,16 @@ const Story = () => {
             </div>
             <div className="collabs-brands flex flex-wrap items-center justify-center gap-4">
               <div className="collabs-col">
-                <img src={Zomato_Logo} alt="Zomato_Logo" className="w-24" />
+                <img src={"/images/Zomato_logo.png"} alt="Zomato_Logo" className="w-24" />
               </div>
               <div className="collabs-col">
-                <img src={Swiggy_Logo} alt="Swiggy_Logo" className="w-24" />
+                <img src={"/images/Swiggy_logo.png"} alt="Swiggy_Logo" className="w-24" />
               </div>
               <div className="collabs-col">
-                <img src={UberEats_Logo} alt="UberEats_Logo" className="w-24" />
+                <img src={"/images/UberEats_logo.png"} alt="UberEats_Logo" className="w-24" />
               </div>
               <div className="collabs-col">
-                <img src={Dominos_Logo} alt="Dominos_Logo" className="w-24" />
+                <img src={"/images/Dominos_logo.png"} alt="Dominos_Logo" className="w-24" />
               </div>
             </div>
           </div>
