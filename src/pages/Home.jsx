@@ -173,7 +173,7 @@ const Home = (props) => {
 
             <div className="person-img">
               <img
-                src={"/images/man.jpg"}
+                src={"/images/quote-man.jpg"}
                 alt="Mr. Amit Chaturvedi"
                 className="rounded-lg"
               />
