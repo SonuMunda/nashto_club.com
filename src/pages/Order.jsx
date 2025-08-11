@@ -336,25 +336,27 @@ const Order = () => {
       {isDinnerTime && <MenuSection title="Dinner" menuItems={dinnerMenu} />}
       {!isBrunchTime && !isLunchTime && !isDinnerTime && (
         <div className="flex flex-col items-center justify-center text-center px-4 py-24 min-h-[65vh] bg-white rounded-lg shadow-md">
-          <img
-            src="/images/sorry.png"
-            alt="sorry icon"
-            className="w-24 md:w-32 mb-4"
-          />
+          <div className="contents">
+            <img
+              src="/images/sorry.png"
+              alt="sorry icon"
+              className="w-24 md:w-32 mb-4"
+            />
 
-          <h1 className="text-2xl max-w-3xl md:text-3xl font-semibold text-gray-800 mb-2">
-            Sorry, we are currently not serving any meals at this time.
-          </h1>
+            <h1 className="text-2xl max-w-3xl md:text-3xl font-semibold text-gray-800 mb-2">
+              Sorry, we are currently not serving any meals at this time.
+            </h1>
 
-          <p className="text-center max-w-3xl md:text-lg text-gray-600">
-            Please check the ordering timings
-            <Link
-              to="/timings"
-              className="ml-2 text-orange-700 font-medium hover:underline hover:text-red-800 transition-colors duration-200"
-            >
-              click here.
-            </Link>
-          </p>
+            <p className="text-center max-w-3xl md:text-lg text-gray-600">
+              Please check the ordering timings
+              <Link
+                to="/timings"
+                className="ml-2 text-orange-700 font-medium hover:underline hover:text-red-800 transition-colors duration-200"
+              >
+                click here.
+              </Link>
+            </p>
+          </div>
         </div>
       )}
     </div>
