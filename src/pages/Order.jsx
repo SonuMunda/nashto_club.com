@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import sorryImg from "/images/sorry.png";
 import BrunchMenuList from "../assets/api/BrunchMenuList";
 import LunchMenuList from "../assets/api/LunchMenuList";
 import DinnerMenuList from "../assets/api/DinnerMenuList";
@@ -81,11 +80,11 @@ const Order = () => {
   const lunchStartTime = new Date();
   lunchStartTime.setHours(11, 0, 0);
   const lunchEndTime = new Date();
-  lunchEndTime.setHours(12, 0, 0);
+  lunchEndTime.setHours(13, 0, 0);
 
   //dinner ordering time
   const dinnerStartTime = new Date();
-  dinnerStartTime.setHours(14, 0, 0);
+  dinnerStartTime.setHours(17, 0, 0);
   const dinnerEndTime = new Date();
   dinnerEndTime.setHours(21, 30, 0);
 
@@ -336,17 +335,22 @@ const Order = () => {
       {isLunchTime && <MenuSection title="Lunch" menuItems={lunchMenu} />}
       {isDinnerTime && <MenuSection title="Dinner" menuItems={dinnerMenu} />}
       {!isBrunchTime && !isLunchTime && !isDinnerTime && (
-        <div className="timings-message center flex-column p-4">
-          <img src={sorryImg} alt="sorry icon" style={{ width: "15%" }} />
-          <h1 className="text-center">
+        <div className="flex flex-col items-center justify-center text-center px-4 py-24 min-h-[65vh] bg-white rounded-lg shadow-md">
+          <img
+            src="/images/sorry.png"
+            alt="sorry icon"
+            className="w-24 md:w-32 mb-4"
+          />
+
+          <h1 className="text-2xl max-w-3xl md:text-3xl font-semibold text-gray-800 mb-2">
             Sorry, we are currently not serving any meals at this time.
           </h1>
-          <p className="py-2  fs-5 text-center">
+
+          <p className="text-center max-w-3xl md:text-lg text-gray-600">
             Please check the ordering timings
             <Link
               to="/timings"
-              className="ms-1"
-              style={{ color: "var(primary-dark-red)" }}
+              className="ml-2 text-orange-700 font-medium hover:underline hover:text-red-800 transition-colors duration-200"
             >
               click here.
             </Link>
