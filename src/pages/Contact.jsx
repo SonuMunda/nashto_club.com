@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import LocationMap from "../components/LocationMap";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
+import {motion} from "framer-motion"
+import {
+  lazyContainer,
+  smoothFade,
+  fadeFromLeft,
+  fadeFromRight,
+} from "../ui/animation";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,20 +38,31 @@ const Contact = () => {
   };
 
   return (
-    <main>
-      <section className="contact min-h-screen flex items-center justify-center ">
-        <div className="container max-w-7xl mx-auto px-4 py-24 space-y-6">
-          <div className="overview">
+    <main className="main w-full overflow-x-hidden">
+      <section className="contact min-h-screen flex items-center justify-center">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24 space-y-6"
+          variants={lazyContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* Overview Heading */}
+          <motion.div className="overview" variants={smoothFade}>
             <h1 className="text-3xl font-extrabold text-neutral-900">
               Get in Touch
             </h1>
             <p className="text-neutral-700">
               Have a question or want to say hello? We'd love to hear from you!
             </p>
-          </div>
+          </motion.div>
 
+          {/* Contact Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className=" flex items-center flex-wrap gap-4 bg-neutral-950 rounded p-10">
+            <motion.div
+              className="flex items-center flex-wrap gap-4 bg-neutral-950 rounded p-10"
+              variants={fadeFromLeft}
+            >
               <div className="icon bg-orange-500 rounded-full p-2">
                 <MdPhone size={48} />
               </div>
@@ -52,9 +70,12 @@ const Contact = () => {
                 <p className="type text-xl font-bold text-neutral-100">Phone</p>
                 <p className="text-neutral-200">+91 80808-08080</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className=" flex items-center flex-wrap gap-4 bg-neutral-950 rounded p-10">
+            <motion.div
+              className="flex items-center flex-wrap gap-4 bg-neutral-950 rounded p-10"
+              variants={smoothFade}
+            >
               <div className="icon bg-orange-500 rounded-full p-2">
                 <MdEmail size={48} />
               </div>
@@ -62,9 +83,12 @@ const Contact = () => {
                 <p className="type text-xl font-bold text-neutral-100">Email</p>
                 <p className="text-neutral-200">nashtoclub@email.com</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className=" flex items-center flex-wrap gap-4 bg-neutral-950 rounded p-10">
+            <motion.div
+              className="flex items-center flex-wrap gap-4 bg-neutral-950 rounded p-10"
+              variants={fadeFromRight}
+            >
               <div className="icon bg-orange-500 rounded-full p-2">
                 <MdLocationOn size={48} />
               </div>
@@ -76,11 +100,13 @@ const Contact = () => {
                   Near Civil Hospital, Kharar, Mohali
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
 
+          {/* Contact Form & Map */}
           <div className="contact-contents grid grid-cols-1 lg:grid-cols-2 bg-neutral-950">
-            <div className="form-box p-4">
+            {/* Form */}
+            <motion.div className="form-box p-4" variants={fadeFromLeft}>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <input
@@ -127,15 +153,21 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 <div>
-                  <input type="submit" value="Send Message" className="text-white bg-orange-500 p-2 w-full rounded-lg mt-4"/>
+                  <input
+                    type="submit"
+                    value="Send Message"
+                    className="text-white bg-orange-500 p-2 w-full rounded-lg mt-4"
+                  />
                 </div>
               </form>
-            </div>
-            <div className="h-full">
+            </motion.div>
+
+            {/* Map */}
+            <motion.div className="h-full" variants={fadeFromRight}>
               <LocationMap />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </main>
   );

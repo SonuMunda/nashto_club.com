@@ -1,23 +1,46 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import CrewMemberCard from "../components/CrewMemberCard";
 import CrewMembersList from "../assets/api/CrewMembersList";
+import {
+  lazyContainer,
+  smoothFade,
+  fadeFromLeft,
+  fadeFromRight,
+} from "../ui/animation";
+
 const Story = () => {
   return (
-    <main>
+    <main className="main w-full overflow-x-hidden">
+      {/* Hero Section */}
       <section className="hero h-[65vh] bg-neutral-950 flex items-center justify-center">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
-          <div className="story-heading">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24"
+          variants={lazyContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.div className="story-heading" variants={smoothFade}>
             <h1 className="heading cursive-text text-center text-4xl sm:text-5xl text-orange-500">
               Our Story
             </h1>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
+      {/* About Menu Section */}
       <section className="about-menu">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24"
+          variants={lazyContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="about-content grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="about-menu-cols">
+            <motion.div className="about-menu-cols" variants={fadeFromLeft}>
               <div className="menu-img">
                 <img
                   src={"/images/story-menu-intro.jpg"}
@@ -25,8 +48,9 @@ const Story = () => {
                   alt="celebrating"
                 />
               </div>
-            </div>
-            <div className="about-menu-cols">
+            </motion.div>
+
+            <motion.div className="about-menu-cols" variants={fadeFromRight}>
               <div className="menu-content">
                 <div className="title">
                   <h3 className="title text-3xl cursive-text font-bold text-orange-500">
@@ -57,15 +81,22 @@ const Story = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
+      {/* Experience Section */}
       <section className="experience bg-neutral-950">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24"
+          variants={lazyContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="experience-row grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className="experience-col space-y-6">
+            <motion.div className="experience-col space-y-6" variants={fadeFromLeft}>
               <div className="experience-title">
                 <h3 className="title text-3xl cursive-text font-bold text-orange-500">
                   Nashto Club Experience
@@ -91,8 +122,9 @@ const Story = () => {
                   with flavor and a smile. We’ll see you soon!
                 </p>
               </div>
-            </div>
-            <div className="experience-col center flex-column">
+            </motion.div>
+
+            <motion.div className="experience-col center flex-column" variants={fadeFromRight}>
               <div className="story-img">
                 <img
                   src={"/images/experience-intro-bg.jpg"}
@@ -100,14 +132,21 @@ const Story = () => {
                   alt="experience image"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
+      {/* Crew Section */}
       <section id="crew">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
-          <div className="crew-content space-y-10">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24"
+          variants={lazyContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.div className="crew-content space-y-10" variants={smoothFade}>
             <div className="crew-heading">
               <h2 className="title text-4xl text-center cursive-text font-bold text-orange-500">
                 Our Crew
@@ -116,12 +155,19 @@ const Story = () => {
             <div className="crew-card-container py-4">
               <CrewMemberCard crewList={CrewMembersList} />
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
+      {/* Lines Section */}
       <section className="lines bg-neutral-950">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24"
+          variants={smoothFade}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <p className="text-orange-500 text-xl">
             The Nashto Club -- reinvents the neighborhood brunch-ery, combining
             timeless inspiration from classic Indian with inventive and playful
@@ -130,11 +176,18 @@ const Story = () => {
             collection of comforts, classics and curiosities with a modern
             twist.
           </p>
-        </div>
+        </motion.div>
       </section>
 
+      {/* Collaborations Section */}
       <section id="collabs">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
+        <motion.div
+          className="container max-w-7xl mx-auto px-6 py-24"
+          variants={smoothFade}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <div className="collabs-content space-y-10">
             <div className="crew-heading">
               <h2 className="title text-3xl cursive-text text-center font-bold text-orange-500">
@@ -143,20 +196,36 @@ const Story = () => {
             </div>
             <div className="collabs-brands flex flex-wrap items-center justify-center gap-4">
               <div className="collabs-col">
-                <img src={"/images/Zomato_logo.png"} alt="Zomato_Logo" className="w-24" />
+                <img
+                  src={"/images/Zomato_logo.png"}
+                  alt="Zomato_Logo"
+                  className="w-24"
+                />
               </div>
               <div className="collabs-col">
-                <img src={"/images/Swiggy_logo.png"} alt="Swiggy_Logo" className="w-24" />
+                <img
+                  src={"/images/Swiggy_logo.png"}
+                  alt="Swiggy_Logo"
+                  className="w-24"
+                />
               </div>
               <div className="collabs-col">
-                <img src={"/images/UberEats_logo.png"} alt="UberEats_Logo" className="w-24" />
+                <img
+                  src={"/images/UberEats_logo.png"}
+                  alt="UberEats_Logo"
+                  className="w-24"
+                />
               </div>
               <div className="collabs-col">
-                <img src={"/images/Dominos_logo.png"} alt="Dominos_Logo" className="w-24" />
+                <img
+                  src={"/images/Dominos_logo.png"}
+                  alt="Dominos_Logo"
+                  className="w-24"
+                />
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </main>
   );

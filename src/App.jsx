@@ -12,14 +12,24 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 import Reservation from "./pages/Reservations";
+import Loader from "./components/Loader";
 
 function App() {
   const [openWidget, setOpenWidget] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, [pathname]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>

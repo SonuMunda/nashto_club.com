@@ -30,7 +30,7 @@ const contactInfo = [
 const Footer = () => {
   return (
     <footer className="bg-neutral-950 border-t border-neutral-800">
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           {/* Brand */}
           <div>

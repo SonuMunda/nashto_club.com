@@ -122,9 +122,9 @@ const Order = () => {
   };
 
   const MenuSection = ({ title, menuItems }) => (
-    <main>
+    <main className="main w-full overflow-x-hidden">
       <section className="order-section center">
-        <div className="container max-w-7xl mx-auto px-4 py-24">
+        <div className="container max-w-7xl mx-auto px-6 py-24">
           <div className="order-content grid grid-cols-1 lg:grid-cols-3 justify-between gap-10">
             <div className="order-menu-list lg:col-span-2">
               <h3 className="heading pb-6 text-center cursive-text text-orange-500 font-bold text-3xl sm:text-4xl">
@@ -221,7 +221,7 @@ const Order = () => {
               {cart.length > 0 ? (
                 <div className="flex flex-col">
                   {/* Cart Items */}
-                  <ul className="flex-1 overflow-y-auto px-4">
+                  <ul className="flex-1 overflow-y-auto px-6">
                     {cart.map((item) => (
                       <li
                         key={item.id}
@@ -335,7 +335,7 @@ const Order = () => {
       {isLunchTime && <MenuSection title="Lunch" menuItems={lunchMenu} />}
       {isDinnerTime && <MenuSection title="Dinner" menuItems={dinnerMenu} />}
       {!isBrunchTime && !isLunchTime && !isDinnerTime && (
-        <div className="flex flex-col items-center justify-center text-center px-4 py-24 min-h-[65vh] bg-white rounded-lg shadow-md">
+        <div className="flex flex-col items-center justify-center text-center px-6 py-24 min-h-[65vh] bg-white rounded-lg shadow-md">
           <div className="contents">
             <img
               src="/images/sorry.png"
